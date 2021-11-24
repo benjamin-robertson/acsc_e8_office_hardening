@@ -5,11 +5,11 @@
 # @example
 #   include acsc_e8_office_hardening
 class acsc_e8_office_hardening (
-  Boolean $disable_flash_content = ture
+  Boolean $disable_flash_content = true
 ) {
 
   if $disable_flash_content {
-    include disable_flash
+    include acsc_e8_office_hardening::disable_flash
   }
 
 }
