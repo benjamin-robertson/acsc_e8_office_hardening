@@ -1,1 +1,7 @@
---- {}
+---
+acsc_e8_office_hardening::disable_flash::reg_values:
+  HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}\ActivationFilterOverride:
+    key: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}'
+    value: 'ActivationFilterOverride'
+    type: 'dword'
+    data: '0'
