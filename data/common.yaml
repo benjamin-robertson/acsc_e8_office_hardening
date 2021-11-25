@@ -89,7 +89,7 @@ acsc_e8_office_hardening::macros::all_disabled:
     type: 'dword'
     data: '3'
   software\policies\microsoft\office\16.0\common\vbaoff:
-    class: 'user'
+    class: 'both'
     key: 'software\policies\microsoft\office\16.0\common'
     value: 'vbaoff'
     type: 'dword'
@@ -145,7 +145,7 @@ acsc_e8_office_hardening::macros::trusted_locations:
     type: 'dword'
     data: '2'
   software\policies\microsoft\office\16.0\common\vbaoff:
-    class: 'user'
+    class: 'both'
     key: 'software\policies\microsoft\office\16.0\common'
     value: 'vbaoff'
     type: 'dword'
@@ -237,7 +237,7 @@ acsc_e8_office_hardening::macros::signed_only:
     type: 'dword'
     data: '1'
   software\policies\microsoft\office\16.0\common\vbaoff:
-    class: 'user'
+    class: 'both'
     key: 'software\policies\microsoft\office\16.0\common'
     value: 'vbaoff'
     type: 'dword'
