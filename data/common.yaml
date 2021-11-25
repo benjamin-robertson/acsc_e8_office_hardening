@@ -100,6 +100,42 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'allow user locations'
     type: 'dword'
     data: '0'
+  software\policies\microsoft\office\16.0\excel\security\accessvbom:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'accessvbom'
+    type: 'dword'
+    data: '0'
+	software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\excel\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+	software\policies\microsoft\office\16.0\excel\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
+  software\policies\microsoft\office\16.0\excel\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\excel\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
 
 acsc_e8_office_hardening::macros::trusted_locations:
   software\policies\microsoft\office\common\security\automationsecurity:
@@ -124,6 +160,54 @@ acsc_e8_office_hardening::macros::trusted_locations:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\common\security\trusted locations'
     value: 'allow user locations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\excel\security\excelbypassencryptedmacroscan:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'excelbypassencryptedmacroscan'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\excel\security\blockcontentexecutionfrominternet:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\excel\security\accessvbom:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'accessvbom'
+    type: 'dword'
+    data: '0'
+	software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\excel\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+	software\policies\microsoft\office\16.0\excel\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
+  software\policies\microsoft\office\16.0\excel\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\excel\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted locations'
+    value: 'alllocationsdisabled'
     type: 'dword'
     data: '0'
 
@@ -170,8 +254,56 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'allow user locations'
     type: 'dword'
     data: '0'
-  software\policies\microsoft\office\16.0\excel\disabledcmdbaritemslist\19092:
+  software\policies\microsoft\office\16.0\excel\disabledcmdbaritemslist\19092: # Confirm this works when this mode is used
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\disabledcmdbaritemslist'
     value: '19092'
     type: 'string'
+  software\policies\microsoft\office\16.0\excel\security\excelbypassencryptedmacroscan:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'excelbypassencryptedmacroscan'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\excel\security\blockcontentexecutionfrominternet:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\excel\security\accessvbom:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'accessvbom'
+    type: 'dword'
+    data: '0'
+	software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\excel\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+	software\policies\microsoft\office\16.0\excel\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '3'
+  software\policies\microsoft\office\16.0\excel\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\excel\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
