@@ -106,7 +106,7 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'accessvbom'
     type: 'dword'
     data: '0'
-	software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
+  software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
     value: 'disabletrusteddocuments'
@@ -118,7 +118,7 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'disablenetworktrusteddocuments'
     type: 'dword'
     data: '1'
-	software\policies\microsoft\office\16.0\excel\security\vbawarnings:
+  software\policies\microsoft\office\16.0\excel\security\vbawarnings:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security'
     value: 'vbawarnings'
@@ -180,7 +180,7 @@ acsc_e8_office_hardening::macros::trusted_locations:
     value: 'accessvbom'
     type: 'dword'
     data: '0'
-	software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
+  software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
     value: 'disabletrusteddocuments'
@@ -192,7 +192,7 @@ acsc_e8_office_hardening::macros::trusted_locations:
     value: 'disablenetworktrusteddocuments'
     type: 'dword'
     data: '1'
-	software\policies\microsoft\office\16.0\excel\security\vbawarnings:
+  software\policies\microsoft\office\16.0\excel\security\vbawarnings:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security'
     value: 'vbawarnings'
@@ -277,7 +277,7 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'accessvbom'
     type: 'dword'
     data: '0'
-	software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
+  software\policies\microsoft\office\16.0\excel\security\trusted documents\disabletrusteddocuments:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security\trusted documents'
     value: 'disabletrusteddocuments'
@@ -289,7 +289,7 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'disablenetworktrusteddocuments'
     type: 'dword'
     data: '1'
-	software\policies\microsoft\office\16.0\excel\security\vbawarnings:
+  software\policies\microsoft\office\16.0\excel\security\vbawarnings:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security'
     value: 'vbawarnings'
