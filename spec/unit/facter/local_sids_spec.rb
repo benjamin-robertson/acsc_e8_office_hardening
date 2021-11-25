@@ -12,7 +12,4 @@ describe :local_sids, type: :fact do
     Facter.clear
   end
 
-  it 'returns a value' do
-    expect(fact.value).to eq('hello facter')
-  end
 end
