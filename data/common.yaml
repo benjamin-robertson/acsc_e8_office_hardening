@@ -170,3 +170,8 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'allow user locations'
     type: 'dword'
     data: '0'
+  software\policies\microsoft\office\16.0\excel\disabledcmdbaritemslist\19092:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\excel\disabledcmdbaritemslist'
+    value: '19092'
+    type: 'string'
