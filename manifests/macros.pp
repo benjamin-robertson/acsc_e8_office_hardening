@@ -21,5 +21,5 @@ class acsc_e8_office_hardening::macros (
     default: { fail{'not a valid macro option':} }
   }
 
-  notify {$macro_setting:}
+  notify {$global_settings:}
 }
