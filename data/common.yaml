@@ -82,7 +82,51 @@ acsc_e8_office_hardening::disable_flash::reg_values:
     data: '1024'
 
 acsc_e8_office_hardening::macros::all_disabled:
+  software\policies\microsoft\office\common\security\automationsecurity:
+    class: 'user'
+    key: 'software\policies\microsoft\office\common\security'
+    value: 'automationsecurity'
+    type: 'dword'
+    data: '3'
+  software\policies\microsoft\office\16.0\common\vbaoff:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common'
+    value: 'vbaoff'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\common\security\trusted locations\allow user locations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common\security\trusted locations'
+    value: 'allow user locations'
+    type: 'dword'
+    data: '0'
+
 acsc_e8_office_hardening::macros::trusted_locations:
+  software\policies\microsoft\office\common\security\automationsecurity:
+    class: 'user'
+    key: 'software\policies\microsoft\office\common\security'
+    value: 'automationsecurity'
+    type: 'dword'
+    data: '2'
+  software\policies\microsoft\office\16.0\common\vbaoff:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common'
+    value: 'vbaoff'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\common\security\macroruntimescanscope:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common\security'
+    value: 'macroruntimescanscope'
+    type: 'dword'
+    data: '2'
+  software\policies\microsoft\office\16.0\common\security\trusted locations\allow user locations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common\security\trusted locations'
+    value: 'allow user locations'
+    type: 'dword'
+    data: '0'
+
 acsc_e8_office_hardening::macros::signed_only:
   Software\Policies\Microsoft\Internet Explorer\Control Panel\ContentTab:
     class: 'both'
@@ -96,3 +140,33 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'Restrict_Run'
     type: 'dword'
     data: '1'
+  software\policies\microsoft\office\common\security\automationsecurity:
+    class: 'user'
+    key: 'software\policies\microsoft\office\common\security'
+    value: 'automationsecurity'
+    type: 'dword'
+    data: '2'
+  software\policies\microsoft\office\16.0\common\trustcenter\trustbar:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common\trustcenter'
+    value: 'trustbar'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\common\vbaoff:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common'
+    value: 'vbaoff'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\common\security\macroruntimescanscope:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common\security'
+    value: 'macroruntimescanscope'
+    type: 'dword'
+    data: '2'
+  software\policies\microsoft\office\16.0\common\security\trusted locations\allow user locations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\common\security\trusted locations'
+    value: 'allow user locations'
+    type: 'dword'
+    data: '0'
