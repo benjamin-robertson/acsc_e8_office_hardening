@@ -80,3 +80,19 @@ acsc_e8_office_hardening::disable_flash::reg_values:
     value: 'Compatibility Flags'
     type: 'dword'
     data: '1024'
+
+acsc_e8_office_hardening::macros::all_disabled:
+acsc_e8_office_hardening::macros::trusted_locations:
+acsc_e8_office_hardening::macros::signed_only:
+  Software\Policies\Microsoft\Internet Explorer\Control Panel\ContentTab:
+    class: 'both'
+    key: 'Software\Policies\Microsoft\Internet Explorer\Control Panel'
+    value: 'ContentTab'
+    type: 'dword'
+    data: '1'
+  Software\Policies\Microsoft\MMC\{53D6AB1D-2488-11D1-A28C-00C04FB94F17}\Restrict_Run:
+    class: 'user'
+    key: 'Software\Policies\Microsoft\MMC\{53D6AB1D-2488-11D1-A28C-00C04FB94F17}'
+    value: 'Restrict_Run'
+    type: 'dword'
+    data: '1'

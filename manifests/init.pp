@@ -5,11 +5,19 @@
 # @example
 #   include acsc_e8_office_hardening
 class acsc_e8_office_hardening (
-  Boolean $disable_flash_content = true
+  Boolean $disable_flash_content = true,
+  Boolean $diable_macros = true,
+  Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only'] $macro_setting = 'signed_macros_only',
 ) {
 
   if $disable_flash_content {
     include acsc_e8_office_hardening::disable_flash
+  }
+
+  if $diable_macros {
+    class { 'acsc_e8_office_hardening::macros':
+      macro_setting => $macro_setting,
+    }
   }
 
 }
