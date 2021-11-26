@@ -4,7 +4,7 @@
 # @example
 #   include acsc_e8_office_hardening::macros
 class acsc_e8_office_hardening::macros (
-  String $macro_setting = 'signed_macros_only',
+  String $macro_setting = 'all_macros_disabled',
 ) {
   assert_private()
 

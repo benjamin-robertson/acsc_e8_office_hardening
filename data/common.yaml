@@ -81,6 +81,8 @@ acsc_e8_office_hardening::disable_flash::reg_values:
     type: 'dword'
     data: '1024'
 
+
+########## All macros disabled ################
 acsc_e8_office_hardening::macros::all_disabled:
   software\policies\microsoft\office\common\security\automationsecurity:
     class: 'user'
@@ -100,6 +102,7 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'allow user locations'
     type: 'dword'
     data: '0'
+########## Excel ############
   software\policies\microsoft\office\16.0\excel\security\accessvbom:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security'
@@ -136,7 +139,34 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '1'
+############ Word #############
+  software\policies\microsoft\office\16.0\word\security\accessvbom:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'accessvbom'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\word\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
 
+
+############### Trusted locations #################
 acsc_e8_office_hardening::macros::trusted_locations:
   software\policies\microsoft\office\common\security\automationsecurity:
     class: 'user'
@@ -162,6 +192,7 @@ acsc_e8_office_hardening::macros::trusted_locations:
     value: 'allow user locations'
     type: 'dword'
     data: '0'
+############# Excel ##################
   software\policies\microsoft\office\16.0\excel\security\excelbypassencryptedmacroscan:
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\security'
@@ -210,7 +241,47 @@ acsc_e8_office_hardening::macros::trusted_locations:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '0'
+############ Word #############
+  software\policies\microsoft\office\16.0\word\security\wordbypassencryptedmacroscan:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'wordbypassencryptedmacroscan'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\word\security\blockcontentexecutionfrominternet:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\accessvbom:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'accessvbom'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\word\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
 
+
+
+############## Signed macros only ###################
 acsc_e8_office_hardening::macros::signed_only:
   Software\Policies\Microsoft\Internet Explorer\Control Panel\ContentTab:
     class: 'both'
@@ -254,6 +325,7 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'allow user locations'
     type: 'dword'
     data: '0'
+########### Excel ###############
   software\policies\microsoft\office\16.0\excel\disabledcmdbaritemslist\19092: # Confirm this works when this mode is used
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\excel\disabledcmdbaritemslist'
@@ -307,3 +379,45 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '1'
+############ Word #############
+  software\policies\microsoft\office\16.0\word\disabledcmdbaritemslist\19092:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\disabledcmdbaritemslist'
+    value: '19092'
+    type: 'string'
+  software\policies\microsoft\office\16.0\word\security\wordbypassencryptedmacroscan:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'wordbypassencryptedmacroscan'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\word\security\blockcontentexecutionfrominternet:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\accessvbom:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'accessvbom'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\word\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '3'
