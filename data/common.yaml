@@ -164,6 +164,18 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'vbawarnings'
     type: 'dword'
     data: '4'
+	software\policies\microsoft\office\16.0\word\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\word\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
 
 
 ############### Trusted locations #################
@@ -278,6 +290,18 @@ acsc_e8_office_hardening::macros::trusted_locations:
     value: 'vbawarnings'
     type: 'dword'
     data: '4'
+	software\policies\microsoft\office\16.0\word\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\word\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '0'
 
 
 
@@ -421,3 +445,15 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'vbawarnings'
     type: 'dword'
     data: '3'
+	software\policies\microsoft\office\16.0\word\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\word\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\word\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
