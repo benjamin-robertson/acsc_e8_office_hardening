@@ -176,7 +176,38 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '1'
-
+############## Access ################
+  software\policies\microsoft\office\16.0\access\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
+  software\policies\microsoft\office\16.0\access\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\access\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
+########## All macros disabled ################
 
 ############### Trusted locations #################
 acsc_e8_office_hardening::macros::trusted_locations:
@@ -302,6 +333,44 @@ acsc_e8_office_hardening::macros::trusted_locations:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '0'
+############## Access ################
+  software\policies\microsoft\office\16.0\access\security\blockcontentexecutionfrominternet:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
+  software\policies\microsoft\office\16.0\access\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '0'
+############### Trusted locations #################
 
 
 
@@ -457,3 +526,46 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '1'
+############## Access ################
+  software\policies\microsoft\office\16.0\access\security\blockcontentexecutionfrominternet:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\trusted documents\disabletrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\trusted documents\disablenetworktrusteddocuments:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\security\vbawarnings:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '3'
+  software\policies\microsoft\office\16.0\access\security\trusted locations\allownetworklocations:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\access\security\trusted locations\alllocationsdisabled:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\access\disabledcmdbaritemslist\19092:
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\access\disabledcmdbaritemslist'
+    value: '19092'
+    type: 'string'
+############## Signed macros only ###################
