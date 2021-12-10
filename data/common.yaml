@@ -219,44 +219,44 @@ acsc_e8_office_hardening::macros::all_disabled:
     key: 'software\policies\microsoft\office\16.0\outlook\security'
     value: 'level'
     type: 'dword'
-    value: '4'
+    data: '4'
 ############### PowerPoint #################
   software\policies\microsoft\office\16.0\powerpoint\security\accessvbom:  # Trust access to Visual Basic Project
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'accessvbom'
     type: 'dword'
-    value: '0'
+    data: '0'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted documents\disabletrusteddocuments:  # Turn off trusted documents
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted documents'
     value: 'disabletrusteddocuments'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted documents\disablenetworktrusteddocuments:  # Turn off Trusted Documents on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted documents'
     value: 'disablenetworktrusteddocuments'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\vbawarnings:  # VBA Macro Notification Settings
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'vbawarnings'
     type: 'dword'
-    value: '2'
+    data: '2'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
     value: 'allownetworklocations'
     type: 'dword'
-    value: '0'
+    data: '0'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
     value: 'alllocationsdisabled'
     type: 'dword'
-    value: '1'
+    data: '1'
 ########## All macros disabled ################
 
 ############### Trusted locations #################
@@ -432,56 +432,56 @@ acsc_e8_office_hardening::macros::trusted_locations:
     key: 'software\policies\microsoft\office\16.0\outlook\security'
     value: 'level'
     type: 'dword'
-    value: '4'
+    data: '4'
 ############### PowerPoint #################
   software\policies\microsoft\office\16.0\powerpoint\security\powerpointbypassencryptedmacroscan:  # Scan encrypted macros in PowerPoint Open XML presentations
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'powerpointbypassencryptedmacroscan'
     type: 'dword'
-    value: '0'
+    data: '0'
   software\policies\microsoft\office\16.0\powerpoint\security\blockcontentexecutionfrominternet:  # Block macros from running in Office files from the Internet
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'blockcontentexecutionfrominternet'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\accessvbom:  # Trust access to Visual Basic Project
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'accessvbom'
     type: 'dword'
-    value: '0'
+    data: '0'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted documents\disabletrusteddocuments:  # Turn off trusted documents
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted documents'
     value: 'disabletrusteddocuments'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted documents\disablenetworktrusteddocuments:  # Turn off Trusted Documents on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted documents'
     value: 'disablenetworktrusteddocuments'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\vbawarnings:  # VBA Macro Notification Settings
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'vbawarnings'
     type: 'dword'
-    value: '2'
+    data: '2'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
     value: 'allownetworklocations'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
     value: 'alllocationsdisabled'
     type: 'dword'
-    value: '0'
+    data: '0'
 ############### Trusted locations #################
 
 
@@ -697,7 +697,7 @@ acsc_e8_office_hardening::macros::signed_only:
     key: 'software\policies\microsoft\office\16.0\outlook\security'
     value: 'level'
     type: 'dword'
-    value: '3'
+    data: '3'
 ############## Powerpoint ##################
   software\policies\microsoft\office\16.0\powerpoint\disabledcmdbaritemslist\19092:  # Disable commands
     class: 'user'
@@ -709,47 +709,47 @@ acsc_e8_office_hardening::macros::signed_only:
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'powerpointbypassencryptedmacroscan'
     type: 'dword'
-    value: '0'
+    data: '0'
   software\policies\microsoft\office\16.0\powerpoint\security\blockcontentexecutionfrominternet:  # Block macros from running in Office files from the Internet
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'blockcontentexecutionfrominternet'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\accessvbom:  # Trust access to Visual Basic Project
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'accessvbom'
     type: 'dword'
-    value: '0'
+    data: '0'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted documents\disabletrusteddocuments:  # Turn off trusted documents
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted documents'
     value: 'disabletrusteddocuments'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted documents\disablenetworktrusteddocuments:  # Turn off Trusted Documents on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted documents'
     value: 'disablenetworktrusteddocuments'
     type: 'dword'
-    value: '1'
+    data: '1'
   software\policies\microsoft\office\16.0\powerpoint\security\vbawarnings:  # VBA Macro Notification Settings
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'vbawarnings'
     type: 'dword'
-    value: '3'
+    data: '3'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
     value: 'allownetworklocations'
     type: 'dword'
-    value: '0'
+    data: '0'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
     value: 'alllocationsdisabled'
     type: 'dword'
-    value: '1'
+    data: '1'
 ############## Signed macros only ###################
