@@ -29,10 +29,10 @@ class acsc_e8_office_hardening::macros (
     $reg_val_2 = lookup('acsc_e8_office_hardening::macros::trusted_locations')
     $reg_val_3 = lookup('acsc_e8_office_hardening::macros::signed_only')
     $reg_merged = merge($reg_val_1, $reg_val_2, $reg_val_3)
+    $mystring = inline_template('<%= @reg_merged.to_s %>')
     file { 'myfile':
-      path    => 'c:\\',
-      name    => 'merged_hash.txt',
-      content => $reg_merged,
+      path    => 'c:\\merged_hash.txt',
+      content => $mystring,
     }
   } else {
     $global_settings.each | String $key_name, Hash $key_details | {
