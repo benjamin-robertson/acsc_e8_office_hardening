@@ -25,15 +25,50 @@ class acsc_e8_office_hardening::macros (
   }
 
   if $clear_macro_settings {
+    # We will delete all the registry keys set by Puppet
     $reg_val_1 = lookup('acsc_e8_office_hardening::macros::all_disabled')
     $reg_val_2 = lookup('acsc_e8_office_hardening::macros::trusted_locations')
     $reg_val_3 = lookup('acsc_e8_office_hardening::macros::signed_only')
+    # merge all hashes together
     $reg_merged = merge($reg_val_1, $reg_val_2, $reg_val_3)
+
     $mystring = inline_template('<%= @reg_merged.to_s %>')
     file { 'myfile':
       path    => 'c:\\merged_hash.txt',
       content => $mystring,
     }
+
+    # Unpack the hash
+    $reg_merged.each | String $key_name, Hash $key_details | {
+      case $key_details['class'] {
+        'both': {
+          # Delete machine registry keys
+          registry_key { $key_name:
+            ensure => absent,
+            path   => "HKEY_LOCAL_MACHINE\\${key_name}",
+          }
+          # set user registry keys
+          acsc_e8_office_hardening::delete_user_registry_value { $key_name:
+            key_name    => $key_name,
+          }
+        }
+        'user': {
+          # set user registry keys
+          acsc_e8_office_hardening::delete_user_registry_value { $key_name:
+            key_name    => $key_name,
+          }
+        }
+        'machine': {
+          # set machine registry keys
+          registry_key { $key_name:
+            ensure => absent,
+            path   => "HKEY_LOCAL_MACHINE\\${key_name}",
+          }
+        }
+        default: { fail{'Registry key must specify a class, either both, user, machine.':} }
+      }
+    }
+
   } else {
     $global_settings.each | String $key_name, Hash $key_details | {
       case $key_details['class'] {

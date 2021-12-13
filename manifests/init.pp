@@ -7,7 +7,7 @@
 class acsc_e8_office_hardening (
   Boolean $disable_flash_content = true,
   Boolean $diable_macros = true,
-  Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only','clear_macro_settings'] $macro_setting = 'clear_macro_settings',
+  Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only','clear_macro_settings'] $macro_setting = 'clear_macro_settings', # lint:ignore:140chars
 ) {
 
   if $disable_flash_content {
