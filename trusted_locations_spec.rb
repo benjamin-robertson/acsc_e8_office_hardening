@@ -7,7 +7,7 @@ describe 'acsc_e8_office_hardening::trusted_locations' do
     context "on #{os}" do
       let(:facts) { os_facts }
 
-      #it { is_expected.to compile }
+      # it { is_expected.to compile }
     end
   end
 end
