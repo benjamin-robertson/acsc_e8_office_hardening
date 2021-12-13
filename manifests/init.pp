@@ -22,7 +22,7 @@ class acsc_e8_office_hardening (
   }
 
   if $trusted_locations {
-    notify {'Trusted locations set Hello123':}
+    notify {'Trusted locations set':}
   }
 
 }
