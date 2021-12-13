@@ -244,7 +244,7 @@ acsc_e8_office_hardening::macros::all_disabled:
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'vbawarnings'
     type: 'dword'
-    data: '2'
+    data: '4'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
@@ -275,7 +275,7 @@ acsc_e8_office_hardening::macros::all_disabled:
     key: 'software\policies\microsoft\office\16.0\ms project\security'
     value: 'vbawarnings'
     type: 'dword'
-    data: '2'
+    data: '4'
 ########### Publisher ############
   software\policies\microsoft\office\common\security\automationsecuritypublisher:  # Publisher Automation Security Level
     class: 'user'
@@ -288,7 +288,50 @@ acsc_e8_office_hardening::macros::all_disabled:
     key: 'software\policies\microsoft\office\16.0\publisher\security'
     value: 'vbawarnings'
     type: 'dword'
-    data: '2'
+    data: '4'
+############ Visio ###############
+  software\policies\microsoft\office\16.0\visio\application\createvbaprojects:  # Enable Microsoft Visual Basic for Applications project creation
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\application'
+    value: 'createvbaprojects'
+    type: 'string'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\application\loadvbaprojectsfromtext:  # Load Microsoft Visual Basic for Applications projects from text
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\application'
+    value: 'loadvbaprojectsfromtext'
+    type: 'string'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\trusted documents\disabletrusteddocuments:  # Turn off trusted documents
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\trusted documents\disablenetworktrusteddocuments:  # Turn off Trusted Documents on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
 ########## All macros disabled ################
 
 ############### Trusted locations #################
@@ -501,7 +544,7 @@ acsc_e8_office_hardening::macros::trusted_locations:
     key: 'software\policies\microsoft\office\16.0\powerpoint\security'
     value: 'vbawarnings'
     type: 'dword'
-    data: '2'
+    data: '4'
   software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations'
@@ -532,7 +575,7 @@ acsc_e8_office_hardening::macros::trusted_locations:
     key: 'software\policies\microsoft\office\16.0\ms project\security'
     value: 'vbawarnings'
     type: 'dword'
-    data: '2'
+    data: '4'
 ########### Publisher ############
   software\policies\microsoft\office\common\security\automationsecuritypublisher:  # Publisher Automation Security Level
     class: 'user'
@@ -545,7 +588,56 @@ acsc_e8_office_hardening::macros::trusted_locations:
     key: 'software\policies\microsoft\office\16.0\publisher\security'
     value: 'vbawarnings'
     type: 'dword'
-    data: '2'
+    data: '4'
+############ Visio ###############
+  software\policies\microsoft\office\16.0\visio\application\createvbaprojects:  # Enable Microsoft Visual Basic for Applications project creation
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\application'
+    value: 'createvbaprojects'
+    type: 'string'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\application\loadvbaprojectsfromtext:  # Load Microsoft Visual Basic for Applications projects from text
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\application'
+    value: 'loadvbaprojectsfromtext'
+    type: 'string'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\blockcontentexecutionfrominternet:  # Block macros from running in Office files from the Internet
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\security\trusted documents\disabletrusteddocuments:  # Turn off trusted documents
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\trusted documents\disablenetworktrusteddocuments:  # Turn off Trusted Documents on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '4'
 ############### Trusted locations #################
 
 
@@ -850,6 +942,60 @@ acsc_e8_office_hardening::macros::signed_only:
   software\policies\microsoft\office\16.0\publisher\security\vbawarnings:  # VBA Macro Notification Settings
     class: 'user'
     key: 'software\policies\microsoft\office\16.0\publisher\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '3'
+############ Visio ###############
+	software\policies\microsoft\office\16.0\visio\disabledcmdbaritemslist\19092:  # Disable commands
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\disabledcmdbaritemslist'
+    value: '19092'
+    type: 'string'
+  software\policies\microsoft\office\16.0\visio\application\createvbaprojects:  # Enable Microsoft Visual Basic for Applications project creation
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\application'
+    value: 'createvbaprojects'
+    type: 'string'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\application\loadvbaprojectsfromtext:  # Load Microsoft Visual Basic for Applications projects from text
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\application'
+    value: 'loadvbaprojectsfromtext'
+    type: 'string'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\visio\security\blockcontentexecutionfrominternet:  # Block macros from running in Office files from the Internet
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security'
+    value: 'blockcontentexecutionfrominternet'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\trusted documents\disabletrusteddocuments:  # Turn off trusted documents
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted documents'
+    value: 'disabletrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\trusted documents\disablenetworktrusteddocuments:  # Turn off Trusted Documents on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security\trusted documents'
+    value: 'disablenetworktrusteddocuments'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\visio\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\visio\security'
     value: 'vbawarnings'
     type: 'dword'
     data: '3'
