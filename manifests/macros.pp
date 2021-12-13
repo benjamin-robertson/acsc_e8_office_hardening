@@ -31,7 +31,7 @@ class acsc_e8_office_hardening::macros (
     $reg_merged = merge($reg_val_1, $reg_val_2, $reg_val_3)
     file { 'myfile':
       path    => 'c:\\',
-      name    => 'merged hash',
+      name    => 'merged_hash.txt',
       content => $reg_merged,
     }
   } else {
