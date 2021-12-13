@@ -1,4 +1,12 @@
 ---
+acsc_e8_office_hardening::set_trusted_location::locations:
+  - 'software\policies\microsoft\office\16.0\visio\security\trusted locations\'
+  - 'software\policies\microsoft\office\16.0\word\security\trusted locations\'
+  - 'software\policies\microsoft\office\16.0\ms project\security\trusted locations\'
+  - 'software\policies\microsoft\office\16.0\powerpoint\security\trusted locations\'
+  - 'software\policies\microsoft\office\16.0\access\security\trusted locations\'
+  - 'software\policies\microsoft\office\16.0\excel\security\trusted locations\'
+
 acsc_e8_office_hardening::disable_flash::reg_values:
   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}\ActivationFilterOverride:
     key: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\Common\COM Compatibility\{D27CDB6E-AE6D-11CF-96B8-444553540000}'

@@ -22,7 +22,9 @@ class acsc_e8_office_hardening (
   }
 
   if $trusted_locations {
-    notify {'Trusted locations set':}
+    class { 'trusted_locations':
+      trusted_locations => $trusted_locations,
+    }
   }
 
 }
