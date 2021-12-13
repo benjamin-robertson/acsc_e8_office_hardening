@@ -257,6 +257,38 @@ acsc_e8_office_hardening::macros::all_disabled:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '1'
+########## Project ##############
+  software\policies\microsoft\office\16.0\ms project\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\ms project\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\ms project\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '2'
+########### Publisher ############
+  software\policies\microsoft\office\common\security\automationsecuritypublisher:  # Publisher Automation Security Level
+    class: 'user'
+    key: 'software\policies\microsoft\office\common\security'
+    value: 'automationsecuritypublisher'
+    type: 'dword'
+    data: '3'
+  software\policies\microsoft\office\16.0\publisher\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\publisher\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '2'
 ########## All macros disabled ################
 
 ############### Trusted locations #################
@@ -482,6 +514,38 @@ acsc_e8_office_hardening::macros::trusted_locations:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '0'
+########## Project ##############
+  software\policies\microsoft\office\16.0\ms project\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\ms project\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\ms project\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '2'
+########### Publisher ############
+  software\policies\microsoft\office\common\security\automationsecuritypublisher:  # Publisher Automation Security Level
+    class: 'user'
+    key: 'software\policies\microsoft\office\common\security'
+    value: 'automationsecuritypublisher'
+    type: 'dword'
+    data: '3'
+  software\policies\microsoft\office\16.0\publisher\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\publisher\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '2'
 ############### Trusted locations #################
 
 
@@ -752,4 +816,41 @@ acsc_e8_office_hardening::macros::signed_only:
     value: 'alllocationsdisabled'
     type: 'dword'
     data: '1'
+########## Project ##############
+  software\policies\microsoft\office\16.0\ms project\security\trusted locations\allownetworklocations:  # Allow Trusted Locations on the network
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security\trusted locations'
+    value: 'allownetworklocations'
+    type: 'dword'
+    data: '0'
+  software\policies\microsoft\office\16.0\ms project\security\trusted locations\alllocationsdisabled:  # Disable all trusted locations
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security\trusted locations'
+    value: 'alllocationsdisabled'
+    type: 'dword'
+    data: '1'
+  software\policies\microsoft\office\16.0\ms project\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\ms project\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '3'
+########## Publisher #############
+  software\policies\microsoft\office\16.0\publisher\disabledcmdbaritemslist\19092:  # Disable commands
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\publisher\disabledcmdbaritemslist'
+    value: '19092'
+    type: 'string'
+  software\policies\microsoft\office\common\security\automationsecuritypublisher:  # Publisher Automation Security Level
+    class: 'user'
+    key: 'software\policies\microsoft\office\common\security'
+    value: 'automationsecuritypublisher'
+    type: 'dword'
+    data: '2'
+  software\policies\microsoft\office\16.0\publisher\security\vbawarnings:  # VBA Macro Notification Settings
+    class: 'user'
+    key: 'software\policies\microsoft\office\16.0\publisher\security'
+    value: 'vbawarnings'
+    type: 'dword'
+    data: '3'
 ############## Signed macros only ###################
