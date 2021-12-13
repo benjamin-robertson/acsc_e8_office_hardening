@@ -18,46 +18,58 @@ class acsc_e8_office_hardening::macros (
     'signed_macros_only': {
       $global_settings = lookup('acsc_e8_office_hardening::macros::signed_only')
     }
+    'clear_macro_settings': {
+      $clear_macro_settings = true
+    }
     default: { fail{'not a valid macro option':} }
   }
 
-  $global_settings.each | String $key_name, Hash $key_details | {
-    case $key_details['class'] {
-      'both': {
-        # set machine registry keys
-        registry::value { $key_name:
-          key   => "HKEY_LOCAL_MACHINE\\${key_details['key']}",
-          value => $key_details['value'],
-          type  => $key_details['type'],
-          data  => $key_details['data'],
+  if $clear_macro_settings {
+    $reg_val_1 = lookup('acsc_e8_office_hardening::macros::all_disabled')
+    $reg_val_2 = lookup('acsc_e8_office_hardening::macros::trusted_locations')
+    $reg_val_3 = lookup('acsc_e8_office_hardening::macros::signed_only')
+    $reg_merged = merge($reg_val_1, $reg_val_2, $reg_val_3)
+    file { 'myfile':
+      path    => 'c:\\',
+      name    => 'merged hash',
+      content => $reg_merged,
+    }
+  } else {
+    $global_settings.each | String $key_name, Hash $key_details | {
+      case $key_details['class'] {
+        'both': {
+          # set machine registry keys
+          registry::value { $key_name:
+            key   => "HKEY_LOCAL_MACHINE\\${key_details['key']}",
+            value => $key_details['value'],
+            type  => $key_details['type'],
+            data  => $key_details['data'],
+          }
+          # set user registry keys
+          acsc_e8_office_hardening::user_registry_value { $key_name:
+            key_name    => $key_name,
+            key_details => $key_details
+          }
         }
-        # set user registry keys
-        acsc_e8_office_hardening::user_registry_value { $key_name:
-          key_name    => $key_name,
-          key_details => $key_details
+        'user': {
+          # set user registry keys
+          acsc_e8_office_hardening::user_registry_value { $key_name:
+            key_name    => $key_name,
+            key_details => $key_details
+          }
         }
+        'machine': {
+          # set machine registry keys
+          registry::value { $key_name:
+            key   => "HKEY_LOCAL_MACHINE\\${key_details['key']}",
+            value => $key_details['value'],
+            type  => $key_details['type'],
+            data  => $key_details['data'],
+          }
+        }
+        default: { fail{'Registry key must specify a class, either both, user, machine.':} }
       }
-      'user': {
-        # set user registry keys
-        acsc_e8_office_hardening::user_registry_value { $key_name:
-          key_name    => $key_name,
-          key_details => $key_details
-        }
-      }
-      'machine': {
-        # set machine registry keys
-        registry::value { $key_name:
-          key   => "HKEY_LOCAL_MACHINE\\${key_details['key']}",
-          value => $key_details['value'],
-          type  => $key_details['type'],
-          data  => $key_details['data'],
-        }
-      }
-      default: { fail{'Registry key must specify a class, either both, user, machine.':} }
     }
   }
 
-  #notify {$macro_setting:
-  #  message => $global_settings,
-  #}
 }
