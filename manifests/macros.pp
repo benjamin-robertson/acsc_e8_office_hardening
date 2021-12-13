@@ -43,7 +43,7 @@ class acsc_e8_office_hardening::macros (
       case $key_details['class'] {
         'both': {
           # Delete machine registry keys
-          registry_key { $key_name:
+          registry_value { $key_name:
             ensure => absent,
             path   => "HKEY_LOCAL_MACHINE\\${key_name}",
           }
@@ -60,7 +60,7 @@ class acsc_e8_office_hardening::macros (
         }
         'machine': {
           # set machine registry keys
-          registry_key { $key_name:
+          registry_value { $key_name:
             ensure => absent,
             path   => "HKEY_LOCAL_MACHINE\\${key_name}",
           }
