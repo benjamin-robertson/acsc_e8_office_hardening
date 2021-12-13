@@ -22,7 +22,7 @@ class acsc_e8_office_hardening (
   }
 
   if $trusted_locations {
-    class { 'trusted_locations':
+    class { 'acsc_e8_office_hardening::trusted_locations':
       trusted_locations => $trusted_locations,
     }
   }
