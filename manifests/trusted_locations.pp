@@ -28,8 +28,8 @@ class acsc_e8_office_hardening::trusted_locations (
   notify {"Array is ${delete_array}":}
 
   $delete_array.each | Integer $index | {
-    notify {"Deleting location${elements_to_delete}":}
-    $elements_to_delete = $elements_to_delete - 1
+    $delelete_index = 20 - $index
+    notify {"Deleting location${delelete_index}":}
   }
 
 }
