@@ -21,7 +21,7 @@ class acsc_e8_office_hardening (
     }
   }
 
-  if $trusted_locations {
+  if $macro_setting == 'macros_from_trused_locations' {
     class { 'acsc_e8_office_hardening::trusted_locations':
       trusted_locations => $trusted_locations,
     }
