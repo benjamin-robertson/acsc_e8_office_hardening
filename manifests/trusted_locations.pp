@@ -17,4 +17,6 @@ class acsc_e8_office_hardening::trusted_locations (
   # Unset any unmanaged locations
   $hash_size = size($trusted_locations)
   notify {"size is ${hash_size}": }
+  $myarray = Array($hash_size, true)
+  notify {"arry is ${myarray}":}
 }
