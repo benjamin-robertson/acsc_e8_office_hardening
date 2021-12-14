@@ -30,6 +30,7 @@ class acsc_e8_office_hardening::trusted_locations (
   $delete_array.each | Integer $index | {
     $delelete_index = 20 - $index
     notify {"Deleting location${delelete_index}":}
+    acsc_e8_office_hardening::delete_trusted_location { "location${delelete_index}":}
   }
 
 }
