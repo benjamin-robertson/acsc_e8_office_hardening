@@ -7,12 +7,10 @@
 class acsc_e8_office_hardening::trusted_locations (
   Hash $trusted_locations,
 ) {
-  $lambda_count = 1
   $trusted_locations.each | String $name, Hash $location_data | {
-    #acsc_e8_office_hardening::set_trusted_location {"location${lambda_count}":
-    #  * => $location_data,
-    #}
-    $lambda_count = $lambda_count + 1
-    notify { "the count is ${lambda_count}":}
+    acsc_e8_office_hardening::set_trusted_location {"location${name}":
+      * => $location_data,
+    }
+    notify { "the count is ${name}":}
   }
 }
