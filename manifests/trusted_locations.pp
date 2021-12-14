@@ -7,20 +7,15 @@
 class acsc_e8_office_hardening::trusted_locations (
   Hash $trusted_locations,
 ) {
-  # Get length of trusted locations
-  $hash_size = size($trusted_locations)
-  $hash_size_array = Array($hash_size, false)
+  # Get hash keys as an array
+  $hash_keys = keys($trusted_locations)
+  notify { "hash keys is ${hash_keys}":}
   # Set trusted locations
-  $hash_size_array.each | Integer $index | {
+  $hash_keys.each | Integer $index, String $name | {
     $_index = $index + 1
-    notify { "index is ${_index}":}
-  }
-
-  $trusted_locations.each | String $name, Hash $location_data | {
-    #notify { "index is ${index}":}
-    acsc_e8_office_hardening::set_trusted_location {"location${name}":
-      * => $location_data,
+    acsc_e8_office_hardening::set_trusted_location {"location${index}":
+      * => $trusted_locations[$name],
     }
-  }
 
+  }
 }
