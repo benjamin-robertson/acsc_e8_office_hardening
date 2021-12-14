@@ -17,6 +17,19 @@ class acsc_e8_office_hardening::trusted_locations (
     acsc_e8_office_hardening::set_trusted_location {"location${_index}":
       * => $trusted_locations[$name],
     }
-
   }
+
+  # Delete unmanaged locations
+  $hash_length = size($trusted_locations)
+  $elements_to_delete = 20 - $hash_length
+  notify {"I will delete ${elements_to_delete}":}
+  # Create 20 length array
+  $delete_array = Array($elements_to_delete, false)
+  notify {"Array is ${delete_array}":}
+
+  $delete_array.each | Integer $index | {
+    notify {"Deleting location${elements_to_delete}":}
+    $elements_to_delete = $elements_to_delete - 1
+  }
+
 }
