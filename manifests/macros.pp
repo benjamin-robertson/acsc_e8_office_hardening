@@ -11,12 +11,15 @@ class acsc_e8_office_hardening::macros (
   case $macro_setting {
     'all_macros_disabled': {
       $global_settings = lookup('acsc_e8_office_hardening::macros::all_disabled')
+      $clear_macro_settings = false
     }
     'macros_from_trused_locations': {
       $global_settings = lookup('acsc_e8_office_hardening::macros::trusted_locations')
+      $clear_macro_settings = false
     }
     'signed_macros_only': {
       $global_settings = lookup('acsc_e8_office_hardening::macros::signed_only')
+      $clear_macro_settings = false
     }
     'clear_macro_settings': {
       $clear_macro_settings = true
@@ -31,12 +34,6 @@ class acsc_e8_office_hardening::macros (
     $reg_val_3 = lookup('acsc_e8_office_hardening::macros::signed_only')
     # merge all hashes together
     $reg_merged = merge($reg_val_1, $reg_val_2, $reg_val_3)
-
-    $mystring = inline_template('<%= @reg_merged.to_s %>')
-    file { 'myfile':
-      path    => 'c:\\merged_hash.txt',
-      content => $mystring,
-    }
 
     # Unpack the hash
     $reg_merged.each | String $key_name, Hash $key_details | {
