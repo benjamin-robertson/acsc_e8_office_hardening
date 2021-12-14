@@ -8,8 +8,8 @@
 #   acsc_e8_office_hardening::set_trusted_location { 'namevar': }
 define acsc_e8_office_hardening::set_trusted_location (
   String $path,
-  Optional[String] $date = Undef,
-  Optional[String] $description = Undef,
+  Optional[Variant[String,Undef]] $date = Undef,
+  Optional[Variant[String,Undef]] $description = Undef,
   Optional[Boolean] $allowsub = false,
 ) {
 
