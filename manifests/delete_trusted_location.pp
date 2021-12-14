@@ -12,7 +12,7 @@ define acsc_e8_office_hardening::delete_trusted_location (
   $facts['local_sids'].each | String $sid | {
     # Delete location
     $locations.each | String $location_value | {
-      registry_value { "${sid}\\${location_value}${name}":
+      registry_key { "${sid}\\${location_value}${name}":
         ensure => absent,
         path   => "HKEY_USERS\\${sid}\\${location_value}${name}",
       }
