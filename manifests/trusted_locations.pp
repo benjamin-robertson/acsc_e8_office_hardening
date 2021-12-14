@@ -9,6 +9,7 @@ class acsc_e8_office_hardening::trusted_locations (
 ) {
   # Set trusted locations
   $trusted_locations.each | String $name, Hash $location_data | {
+    notify { "index is ${index}":}
     acsc_e8_office_hardening::set_trusted_location {"location${name}":
       * => $location_data,
     }
