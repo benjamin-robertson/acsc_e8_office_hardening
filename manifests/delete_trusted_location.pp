@@ -17,5 +17,6 @@ define acsc_e8_office_hardening::delete_trusted_location (
         path   => "HKEY_USERS\\${sid}\\${location_value}${name}",
       }
     }
+    notify {"Deleting HKEY_USERS\\${sid}\\${location_value}${name}":}
   }
 }
