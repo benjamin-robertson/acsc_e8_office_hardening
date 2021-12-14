@@ -11,6 +11,5 @@ class acsc_e8_office_hardening::trusted_locations (
     acsc_e8_office_hardening::set_trusted_location {"location${name}":
       * => $location_data,
     }
-    notify { "the count is ${name}":}
   }
 }
