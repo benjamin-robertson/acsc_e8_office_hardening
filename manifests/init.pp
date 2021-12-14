@@ -11,6 +11,13 @@ class acsc_e8_office_hardening (
   Variant[Undef,Hash[String,Hash,1,20]] $trusted_locations = undef,
 ) {
 
+  registry::value { 'acsc_e8_office_hardening_last_run_option':
+    key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
+    value => 'office_macro_last_run',
+    type  => 'string',
+    data  => $macro_setting,
+  }
+
   if $disable_flash_content {
     include acsc_e8_office_hardening::disable_flash
   }
