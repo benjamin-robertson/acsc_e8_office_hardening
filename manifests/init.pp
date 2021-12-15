@@ -21,16 +21,18 @@ class acsc_e8_office_hardening (
 
   # Check if this is the first run of acsc_e8_office_hardening
   if $facts['office_macro_last_run'] != 'clear_macro_settings' {
-    # confirm we are not clearing macro all macro settings
-    if $macro_setting != 'clear_macro_settings' {
-      # this is not our first run check if the macro_setting has changed.
-      if $facts['office_macro_last_run'] != $macro_setting {
-        # Need to delete the non requried registry keys
-        class { 'acsc_e8_office_hardening::clear_unused_registry_values':
-          system_setting     => $facts['office_macro_last_run'],
-          configured_setting => $macro_setting,
+    if $facts['office_macro_last_run'] != 'first_run' {
+      # confirm we are not clearing macro all macro settings
+      if $macro_setting != 'clear_macro_settings' {
+        # this is not our first run check if the macro_setting has changed.
+        if $facts['office_macro_last_run'] != $macro_setting {
+          # Need to delete the non requried registry keys
+          class { 'acsc_e8_office_hardening::clear_unused_registry_values':
+            system_setting     => $facts['office_macro_last_run'],
+            configured_setting => $macro_setting,
+          }
+          Class['acsc_e8_office_hardening::clear_unused_registry_values'] -> Class['acsc_e8_office_hardening::macros'] -> Class['acsc_e8_office_hardening::trusted_locations'] # lint:ignore:140chars
         }
-        Class['acsc_e8_office_hardening::clear_unused_registry_values'] -> Class['acsc_e8_office_hardening::macros'] -> Class['acsc_e8_office_hardening::trusted_locations'] # lint:ignore:140chars
       }
     }
   }
