@@ -19,6 +19,18 @@ class acsc_e8_office_hardening (
     data  => $macro_setting,
   }
 
+  # Check if this is the first run of acsc_e8_office_hardening
+  if $facts['office_macro_last_run'] != 'first_run' {
+    # this is not our first run check if the macro_setting has changed.
+    if $facts['office_macro_last_run'] != $macro_setting {
+      # Need to delete the non requried registry keys
+      class { 'acsc_e8_office_hardening::clear_unused_registry_values':
+        system_setting     => $facts['office_macro_last_run'],
+        configured_setting => $macro_setting,
+      }
+    }
+  }
+
   if $disable_flash_content {
     include acsc_e8_office_hardening::disable_flash
   }
