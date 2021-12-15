@@ -31,7 +31,7 @@ class acsc_e8_office_hardening (
             system_setting     => $facts['office_macro_last_run'],
             configured_setting => $macro_setting,
           }
-          #Class['acsc_e8_office_hardening::clear_unused_registry_values'] -> Class['acsc_e8_office_hardening::macros'] -> Class['acsc_e8_office_hardening::trusted_locations'] # lint:ignore:140chars
+          Class['acsc_e8_office_hardening::clear_unused_registry_values'] -> Class['acsc_e8_office_hardening::macros'] # lint:ignore:140chars
         }
       }
     }
