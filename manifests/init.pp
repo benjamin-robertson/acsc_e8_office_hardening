@@ -20,7 +20,7 @@ class acsc_e8_office_hardening (
   }
 
   # Check if this is the first run of acsc_e8_office_hardening
-  if $facts['office_macro_last_run'] != 'first_run' and 'clear_macro_settings' {
+  if $facts['office_macro_last_run'] != 'clear_macro_settings' {
     # confirm we are not clearing macro all macro settings
     if $macro_setting != 'clear_macro_settings' {
       # this is not our first run check if the macro_setting has changed.
