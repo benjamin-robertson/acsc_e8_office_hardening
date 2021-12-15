@@ -41,4 +41,35 @@ class acsc_e8_office_hardening::clear_unused_registry_values (
 
   notify {"My hash is now ${keys_to_delete}":}
 
+  # Delete the keys
+  $keys_to_delete.each | String $key_name, Hash $key_details | {
+    case $key_details['class'] {
+        'both': {
+          # Delete machine registry keys
+          registry_value { $key_name:
+            ensure => absent,
+            path   => "HKEY_LOCAL_MACHINE\\${key_name}",
+          }
+          # set user registry keys
+          acsc_e8_office_hardening::delete_user_registry_value { $key_name:
+            key_name    => $key_name,
+          }
+        }
+        'user': {
+          # set user registry keys
+          acsc_e8_office_hardening::delete_user_registry_value { $key_name:
+            key_name    => $key_name,
+          }
+        }
+        'machine': {
+          # set machine registry keys
+          registry_value { $key_name:
+            ensure => absent,
+            path   => "HKEY_LOCAL_MACHINE\\${key_name}",
+          }
+        }
+        default: { fail{'Registry key must specify a class, either both, user, machine.':} }
+      }
+  }
+
 }
