@@ -13,6 +13,6 @@ describe :office_macro_last_run, type: :fact do
   end
 
   it 'returns a value' do
-    expect(fact.value).to eq('*')
+    expect(fact.value).is_a? String
   end
 end
