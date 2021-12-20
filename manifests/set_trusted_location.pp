@@ -15,7 +15,9 @@ define acsc_e8_office_hardening::set_trusted_location (
 
   $locations = lookup(acsc_e8_office_hardening::set_trusted_location::locations)
 
-  $facts['local_sids'].each | String $sid | {
+  $all_sids = $facts['local_sids'] << 'louie'
+
+  $all_sids.each | String $sid | {
     $locations.each | String $location_value | {
       # set path
       registry::value { "${sid}\\${location_value}${name}\\path":

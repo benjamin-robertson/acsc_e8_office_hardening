@@ -8,7 +8,9 @@ define acsc_e8_office_hardening::delete_user_registry_value (
   String $key_name,
 ) {
 
-  $facts['local_sids'].each | String $sid | {
+  $all_sids = $facts['local_sids'] << 'louie'
+
+  $all_sids.each | String $sid | {
     registry_value { "${sid}\\${key_name}":
       ensure => absent,
       path   => "HKEY_USERS\\${sid}\\${key_name}",
