@@ -39,8 +39,6 @@ class acsc_e8_office_hardening::clear_unused_registry_values (
   # Delete the key no longer managed by puppet
   $keys_to_delete = $existing_settings - $new_settings
 
-  notify {"My hash is now ${keys_to_delete}":}
-
   # Delete the keys
   $keys_to_delete.each | String $key_name, Hash $key_details | {
     case $key_details['class'] {
