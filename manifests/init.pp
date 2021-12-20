@@ -34,6 +34,7 @@ class acsc_e8_office_hardening (
             system_setting     => $facts['office_macro_last_run'],
             configured_setting => $macro_setting,
             require            => Class['acsc_e8_office_hardening::mount_default_user_hive'],
+            before             => Class['acsc_e8_office_hardening::unmount_default_user_hive'],
           }
           #Class['acsc_e8_office_hardening::clear_unused_registry_values'] -> Class['acsc_e8_office_hardening::macros'] # lint:ignore:140chars
         }
@@ -49,6 +50,7 @@ class acsc_e8_office_hardening (
     class { 'acsc_e8_office_hardening::macros':
       macro_setting => $macro_setting,
       require       => Class['acsc_e8_office_hardening::mount_default_user_hive'],
+      before        => Class['acsc_e8_office_hardening::unmount_default_user_hive'],
     }
   }
 
@@ -56,7 +58,11 @@ class acsc_e8_office_hardening (
     class { 'acsc_e8_office_hardening::trusted_locations':
       trusted_locations => $trusted_locations,
       require           => Class['acsc_e8_office_hardening::mount_default_user_hive'],
+      before            => Class['acsc_e8_office_hardening::unmount_default_user_hive'],
     }
   }
+
+  # Unmount user default registry hive
+  include acsc_e8_office_hardening::unmount_default_user_hive
 
 }
