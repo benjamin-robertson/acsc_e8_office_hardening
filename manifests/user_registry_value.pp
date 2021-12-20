@@ -9,7 +9,7 @@ define acsc_e8_office_hardening::user_registry_value (
   Hash $key_details,
 ) {
 
-  $all_sids = $facts['local_sids'] << 'louie'
+  $all_sids = $facts['local_sids'] << 'user_default'
 
   $all_sids.each | String $sid | {
     registry::value { "${sid}\\${key_name}":

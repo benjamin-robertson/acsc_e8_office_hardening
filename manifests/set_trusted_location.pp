@@ -15,7 +15,7 @@ define acsc_e8_office_hardening::set_trusted_location (
 
   $locations = lookup(acsc_e8_office_hardening::set_trusted_location::locations)
 
-  $all_sids = $facts['local_sids'] << 'louie'
+  $all_sids = $facts['local_sids'] << 'user_default'
 
   $all_sids.each | String $sid | {
     $locations.each | String $location_value | {

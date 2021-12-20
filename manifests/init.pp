@@ -11,6 +11,9 @@ class acsc_e8_office_hardening (
   Variant[Undef,Hash[String,Hash,1,20]] $trusted_locations = undef,
 ) {
 
+  # Mount user default registry hive
+  include acsc_e8_office_hardening::mount_default_user_hive
+
   # Set run status
   registry::value { 'acsc_e8_office_hardening_last_run_option':
     key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
@@ -30,6 +33,7 @@ class acsc_e8_office_hardening (
           class { 'acsc_e8_office_hardening::clear_unused_registry_values':
             system_setting     => $facts['office_macro_last_run'],
             configured_setting => $macro_setting,
+            require            => Class['acsc_e8_office_hardening::mount_default_user_hive'],
           }
           #Class['acsc_e8_office_hardening::clear_unused_registry_values'] -> Class['acsc_e8_office_hardening::macros'] # lint:ignore:140chars
         }
@@ -44,12 +48,14 @@ class acsc_e8_office_hardening (
   if $disable_macros {
     class { 'acsc_e8_office_hardening::macros':
       macro_setting => $macro_setting,
+      require       => Class['acsc_e8_office_hardening::mount_default_user_hive'],
     }
   }
 
   if $macro_setting == 'macros_from_trused_locations' {
     class { 'acsc_e8_office_hardening::trusted_locations':
       trusted_locations => $trusted_locations,
+      require           => Class['acsc_e8_office_hardening::mount_default_user_hive'],
     }
   }
 
