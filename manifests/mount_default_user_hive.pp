@@ -11,6 +11,6 @@ class acsc_e8_office_hardening::mount_default_user_hive {
   # Mount the default user registry hive
   exec { 'Mount regsitry hive':
     command => 'C:\\Windows\\system32\\reg.exe load HKU\\user_default C:\\Users\\Default\\NTUSER.DAT',
-    unless  => 'C:\\Windows\\system32\\reg.exe query HKU:\\user_default',
+    unless  => 'C:\\Windows\\system32\\reg.exe query HKU\\user_default',
   }
 }
