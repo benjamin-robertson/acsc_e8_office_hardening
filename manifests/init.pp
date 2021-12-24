@@ -1,9 +1,22 @@
-# @summary A short summary of the purpose of this class
+# @summary
 #
 # A module which enforces https://www.cyber.gov.au/sites/default/files/2021-10/PROTECT%20-%20Hardening%20Microsoft%20365%2C%20Office%202021%2C%20Office%202019%20and%20Office%202016%20%28October%202021%29.pdf
 #
+#
 # @example
 #   include acsc_e8_office_hardening
+#
+# @param [boolean] disable_flash_content
+#   Disable flash content. Default: true
+# @param [boolean] disable_macros
+#   Disable macros, Default: true
+# @param [Integer] set_ntuser_interval
+#   Set the interval to set the default ntuser macro settings in hours. Default: 1
+# @param [Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only','clear_macro_settings']] macro_setting
+#   Macro settings to enforce, for details see ACSC publication. Default: clear_macro_settings
+# @param [Variant[Undef,Hash[String,Hash,1,20]]] trusted_locations
+#   Set trusted location. See example in readme. Default: undef
+#
 class acsc_e8_office_hardening (
   Boolean $disable_flash_content = true,
   Boolean $disable_macros = true,
@@ -37,6 +50,15 @@ class acsc_e8_office_hardening (
     $set_ntuser_default = true
   } elsif $facts['uptime_seconds'] > $office_macro_uptime_plus_offset {
     # we have passed the interval check ntuser.dat default
+    registry::value { 'acsc_e8_office_hardening_uptime':
+      key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
+      value => 'office_macro_uptime',
+      type  => 'dword',
+      data  => $facts['uptime_seconds'],
+    }
+    $set_ntuser_default = true
+  } elsif $facts['office_macro_uptime'] == 0 {
+    # office_macro_uptime value has been deleted or unset
     registry::value { 'acsc_e8_office_hardening_uptime':
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
       value => 'office_macro_uptime',
