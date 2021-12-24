@@ -25,18 +25,19 @@ class acsc_e8_office_hardening (
   if $run_count > $set_ntuser_interval {
     $_run_count = 0
     $set_ntuser_default = true
+    # Reset run interval
+    registry::value { 'acsc_e8_office_hardening_run_count':
+      key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
+      value => 'office_macro_run_count',
+      type  => 'dword',
+      data  => $_run_count,
+    }
   } else {
     $_run_count = $run_count
     $set_ntuser_default = false
   }
 
-  # Set run interval
-  registry::value { 'acsc_e8_office_hardening_run_count':
-    key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
-    value => 'office_macro_run_count',
-    type  => 'dword',
-    data  => $_run_count,
-  }
+
 
   # Mount user default registry hive
   include acsc_e8_office_hardening::mount_default_user_hive
