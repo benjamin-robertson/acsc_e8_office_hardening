@@ -1,53 +1,48 @@
 # acsc_e8_office_hardening
 
-Welcome to your new module. A short overview of the generated parts can be found
-in the [PDK documentation][1].
+Automate the enforcement of the ACSC essential eight Microsoft office macro security. 
 
-The README template below provides a starting point with details about what
-information to include in your README.
+The module will restrict the use of macro within Office. 
+
+There are 4 operating modes
+* All macros allowed - default mode
+* All macros disabled - disabled all macros in Office, most secure setting
+* Only macros from trusted locations - Only permit macros from locations specified in the trusted_location parameter
+* Only macros digitally signed by trusted publishers.
+
+Please see [ACSC documentation][1] for more details. 
+[Saved link][2]
 
 ## Table of Contents
 
 1. [Description](#description)
-1. [Setup - The basics of getting started with acsc_e8_office_hardening](#setup)
+2. [Setup - The basics of getting started with acsc_e8_office_hardening](#setup)
     * [What acsc_e8_office_hardening affects](#what-acsc_e8_office_hardening-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning with acsc_e8_office_hardening](#beginning-with-acsc_e8_office_hardening)
-1. [Usage - Configuration options and additional functionality](#usage)
-1. [Limitations - OS compatibility, etc.](#limitations)
-1. [Development - Guide for contributing to the module](#development)
+3. [Usage - Configuration options and additional functionality](#usage)
+4. [Limitations - OS compatibility, etc.](#limitations)
+5. [Development - Guide for contributing to the module](#development)
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your
-module does and what kind of problems users can solve with it.
-
-This should be a fairly short description helps the user decide if your module
-is what they want.
+Use this module to automate the enforcement of ACSC Essential 8 Office macro controls. 
 
 ## Setup
 
-### What acsc_e8_office_hardening affects **OPTIONAL**
+### What acsc_e8_office_hardening affects
 
-If it's obvious what your module touches, you can skip this section. For
-example, folks can probably figure out that your mysql_instance module affects
-their MySQL instances.
+acsc_e8_office_hardening will add required registry settings to systems to restrict Office macros as required.
 
-If there's more that they should know about, though, this is the place to
-mention:
+Most registry settings are applied to HKEY_USER. Due to this, Puppet will managed a significant number of resource as each user has its own registry hive. 
+acsc_e8_office_hardening will also modify the default c:\users\Default\ntuser.dat. This is required for any new users who log on to the system. Without this, Puppet won't restrict that user until the next Puppet run. A suboptimal outcome. 
+By default the module will mount and check the default ntuser.dat on each clean boot and every 24 hours thereafter. 
 
-* Files, packages, services, or operations that the module will alter, impact,
-  or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+### Setup Requirements
 
-### Setup Requirements **OPTIONAL**
-
-If your module requires anything extra before setting up (pluginsync enabled,
-another module, etc.), mention it here.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you might want to include an additional "Upgrading" section here.
+Plugin sync is required for this module. Three facts will be automatically distributed
+* local_sids
+* 
 
 ### Beginning with acsc_e8_office_hardening
 
@@ -98,20 +93,20 @@ Default: 'medium-loud'.
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other
-warnings.
+- Will only work with
+  - Office 365
+  - Office 2016
+  - Office 2019
+
+Developed on
+- Windows 2019
+- Office 365
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing
-to your project and how they should submit their work.
+Please submit any issues to the issue tracker.
+Pull requests keenly accepted :)
 
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You can also add any additional sections you feel are
-necessary or important to include here. Please use the `##` header.
-
-[1]: https://puppet.com/docs/pdk/latest/pdk_generating_modules.html
-[2]: https://puppet.com/docs/puppet/latest/puppet_strings.html
+[1]: https://www.cyber.gov.au/acsc/view-all-content/publications/microsoft-office-macro-security
+[2]: https://github.com/benjamin-robertson/acsc_e8_office_hardening/blob/main/PROTECT%20-%20Microsoft%20Office%20Macro%20Security%20(October%202021).pdf
 [3]: https://puppet.com/docs/puppet/latest/puppet_strings_style.html
