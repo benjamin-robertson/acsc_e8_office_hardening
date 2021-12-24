@@ -2,10 +2,10 @@
 
 require 'spec_helper'
 require 'facter'
-require 'facter/office_macro_run_count'
+require 'facter/office_macro_uptime'
 
-describe :office_macro_run_count, type: :fact do
-  subject(:fact) { Facter.fact(:office_macro_run_count) }
+describe :office_macro_uptime, type: :fact do
+  subject(:fact) { Facter.fact(:office_macro_uptime) }
 
   before :each do
     # perform any action that should be run before every test
