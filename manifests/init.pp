@@ -20,24 +20,32 @@ class acsc_e8_office_hardening (
     data  => $macro_setting,
   }
 
-  # Check run count 
-  $run_count = $facts['office_macro_run_count'] + 1
-  if $run_count > $set_ntuser_interval {
-    $_run_count = 0
-    $set_ntuser_default = true
-    # Reset run interval
-    registry::value { 'acsc_e8_office_hardening_run_count':
+  # Calculate offset for set_ntuser_interval
+  $set_ntuser_int_seconds = $set_ntuser_interval * 3600
+  notify { "ntuser in seconds is ${set_ntuser_int_seconds}":}
+
+  # Check run count
+  if $facts['office_macro_uptime'] > $facts['uptime_seconds'] {
+    # we have rebooted
+    registry::value { 'acsc_e8_office_hardening_uptime':
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
-      value => 'office_macro_run_count',
+      value => 'office_macro_uptime',
       type  => 'dword',
-      data  => $_run_count,
+      data  => $facts['uptime_seconds'],
     }
+    $set_ntuser_default = true
+  } elsif $facts['uptime_seconds'] > ($facts['office_macro_uptime'] + $set_ntuser_int_seconds) {
+    # we have passed the interval check ntuser.dat default
+    registry::value { 'acsc_e8_office_hardening_uptime':
+      key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
+      value => 'office_macro_uptime',
+      type  => 'dword',
+      data  => $facts['uptime_seconds'],
+    }
+    $set_ntuser_default = true
   } else {
-    $_run_count = $run_count
     $set_ntuser_default = false
   }
-
-
 
   # Mount user default registry hive
   include acsc_e8_office_hardening::mount_default_user_hive
