@@ -7,12 +7,10 @@
 class acsc_e8_office_hardening (
   Boolean $disable_flash_content = true,
   Boolean $disable_macros = true,
+  Integer $set_ntuser_interval = 24,
   Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only','clear_macro_settings'] $macro_setting = 'clear_macro_settings', # lint:ignore:140chars
   Variant[Undef,Hash[String,Hash,1,20]] $trusted_locations = undef,
 ) {
-
-  # Mount user default registry hive
-  include acsc_e8_office_hardening::mount_default_user_hive
 
   # Set run status
   registry::value { 'acsc_e8_office_hardening_last_run_option':
@@ -21,6 +19,27 @@ class acsc_e8_office_hardening (
     type  => 'string',
     data  => $macro_setting,
   }
+
+  # Check run count 
+  $run_count = $facts['office_macro_run_count'] + 1
+  if $run_count > $set_ntuser_interval {
+    $_run_count = 0
+    $set_ntuser_default = true
+  } else {
+    $_run_count = $run_count
+    $set_ntuser_default = false
+  }
+
+  # Set run interval
+  registry::value { 'acsc_e8_office_hardening_run_count':
+    key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
+    value => 'office_macro_run_count',
+    type  => 'dword',
+    data  => $_run_count,
+  }
+
+  # Mount user default registry hive
+  include acsc_e8_office_hardening::mount_default_user_hive
 
   # Check if this is the first run of acsc_e8_office_hardening
   if $facts['office_macro_last_run'] != 'clear_macro_settings' {
@@ -36,7 +55,6 @@ class acsc_e8_office_hardening (
             require            => Class['acsc_e8_office_hardening::mount_default_user_hive'],
             before             => Class['acsc_e8_office_hardening::unmount_default_user_hive'],
           }
-          #Class['acsc_e8_office_hardening::clear_unused_registry_values'] -> Class['acsc_e8_office_hardening::macros'] # lint:ignore:140chars
         }
       }
     }

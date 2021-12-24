@@ -8,9 +8,12 @@
 class acsc_e8_office_hardening::unmount_default_user_hive {
   assert_private()
 
-  # Mount the default user registry hive
-  exec { 'Unmount regsitry hive':
-    command => 'C:\\Windows\\system32\\reg.exe unload HKU\\user_default',
-    onlyif  => 'C:\\Windows\\system32\\reg.exe query HKU\\user_default',
+  # Check if we are mounting
+  if $acsc_e8_office_hardening::set_ntuser_default {
+    # Mount the default user registry hive
+    exec { 'Unmount regsitry hive':
+      command => 'C:\\Windows\\system32\\reg.exe unload HKU\\user_default',
+      onlyif  => 'C:\\Windows\\system32\\reg.exe query HKU\\user_default',
+    }
   }
 }
