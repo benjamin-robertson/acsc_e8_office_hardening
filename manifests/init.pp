@@ -22,7 +22,8 @@ class acsc_e8_office_hardening (
 
   # Calculate offset for set_ntuser_interval
   $set_ntuser_int_seconds = $set_ntuser_interval * 3600
-  notify { "ntuser in seconds is ${set_ntuser_int_seconds}":}
+  $office_macro_uptime_plus_offset = $facts['office_macro_uptime'] + $set_ntuser_int_seconds
+  notify { "uptime is ${facts['uptime_seconds']} office macro uptiem is ${office_macro_uptime_plus_offset}":}
 
   # Check run count
   if $facts['office_macro_uptime'] > $facts['uptime_seconds'] {
@@ -34,7 +35,7 @@ class acsc_e8_office_hardening (
       data  => $facts['uptime_seconds'],
     }
     $set_ntuser_default = true
-  } elsif $facts['uptime_seconds'] > ($facts['office_macro_uptime'] + $set_ntuser_int_seconds) {
+  } elsif $facts['uptime_seconds'] > $office_macro_uptime_plus_offset {
     # we have passed the interval check ntuser.dat default
     registry::value { 'acsc_e8_office_hardening_uptime':
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
