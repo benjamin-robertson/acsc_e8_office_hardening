@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Facter.add(:office_macro_run_count) do
+Facter.add(:office_macro_uptime) do
   # https://puppet.com/docs/puppet/latest/fact_overview.html
   setcode do
     value = 0
