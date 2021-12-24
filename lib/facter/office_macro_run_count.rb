@@ -10,9 +10,9 @@ Facter.add(:office_macro_run_count) do
     end
     if value > 0
       value += 1
-      Win32::Registry::HKEY_LOCAL_MACHINE.open('SOFTWARE\Puppet Labs\Puppet') do |reg|
-        reg.write('office_macro_run_count', Win32::Registry::REG_DWORD, value)
-      end
+      #Win32::Registry::HKEY_LOCAL_MACHINE.open('SOFTWARE\Puppet Labs\Puppet') do |reg|
+      #  reg.write('office_macro_run_count', Win32::Registry::REG_DWORD, value)
+      #end
     end
     #rescue
     #  value = 0
