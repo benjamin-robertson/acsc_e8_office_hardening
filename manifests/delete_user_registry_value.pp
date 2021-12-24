@@ -8,7 +8,12 @@ define acsc_e8_office_hardening::delete_user_registry_value (
   String $key_name,
 ) {
 
-  $all_sids = $facts['local_sids'] << 'user_default'
+  # Check if we are setting the user default
+  if $acsc_e8_office_hardening::set_ntuser_default {
+    $all_sids = $facts['local_sids'] << 'user_default'
+  } else {
+    $all_sids = $facts['local_sids']
+  }
 
   $all_sids.each | String $sid | {
     registry_value { "${sid}\\${key_name}":
