@@ -7,7 +7,7 @@
 #   include acsc_e8_office_hardening
 #
 # @param [Boolean] disable_flash_content
-#   Disable flash content. Default: true
+#   Disable flash content. Default: false
 # @param [Boolean] disable_macros
 #   Disable macros, Default: true
 # @param [Integer] set_ntuser_interval
@@ -18,7 +18,7 @@
 #   Set trusted location. See example in readme. Default: undef
 #
 class acsc_e8_office_hardening (
-  Boolean $disable_flash_content = true,
+  Boolean $disable_flash_content = false,
   Boolean $disable_macros = true,
   Integer $set_ntuser_interval = 24,
   Enum['all_macros_disabled','macros_from_trusted_locations','signed_macros_only','clear_macro_settings'] $macro_setting = 'clear_macro_settings', # lint:ignore:140chars
