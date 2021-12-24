@@ -4,7 +4,7 @@ Facter.add(:office_macro_run_count) do
   # https://puppet.com/docs/puppet/latest/fact_overview.html
   setcode do
     value = 0
-    begin
+    #begin
       Win32::Registry::HKEY_LOCAL_MACHINE.open('SOFTWARE\Puppet Labs\Puppet') do |reg|
         value = reg['office_macro_run_count']
       end
@@ -14,9 +14,9 @@ Facter.add(:office_macro_run_count) do
           reg.write('office_macro_run_count', Win32::Registry::REG_DWORD, value)
         end
       end
-    rescue
+    #rescue
       value = 0
-    end
+    #end
     value
   end
 end
