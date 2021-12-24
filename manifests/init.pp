@@ -12,7 +12,7 @@
 #   Disable macros, Default: true
 # @param [Integer] set_ntuser_interval
 #   Set the interval to set the default ntuser macro settings in hours. Default: 1
-# @param [Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only','clear_macro_settings']] macro_setting
+# @param [Enum['all_macros_disabled','macros_from_trusted_locations','signed_macros_only','clear_macro_settings']] macro_setting
 #   Macro settings to enforce, for details see ACSC publication. Default: clear_macro_settings
 # @param [Variant[Undef,Hash[String,Hash,1,20]]] trusted_locations
 #   Set trusted location. See example in readme. Default: undef
@@ -21,7 +21,7 @@ class acsc_e8_office_hardening (
   Boolean $disable_flash_content = true,
   Boolean $disable_macros = true,
   Integer $set_ntuser_interval = 24,
-  Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only','clear_macro_settings'] $macro_setting = 'clear_macro_settings', # lint:ignore:140chars
+  Enum['all_macros_disabled','macros_from_trusted_locations','signed_macros_only','clear_macro_settings'] $macro_setting = 'clear_macro_settings', # lint:ignore:140chars
   Variant[Undef,Hash[String,Hash,1,20]] $trusted_locations = undef,
 ) {
 
@@ -103,7 +103,7 @@ class acsc_e8_office_hardening (
     }
   }
 
-  if $macro_setting == 'macros_from_trused_locations' {
+  if $macro_setting == 'macros_from_trusted_locations' {
     class { 'acsc_e8_office_hardening::trusted_locations':
       trusted_locations => $trusted_locations,
       require           => Class['acsc_e8_office_hardening::mount_default_user_hive'],

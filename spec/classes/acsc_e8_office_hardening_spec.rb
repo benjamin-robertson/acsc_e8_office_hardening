@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'acsc_e8_office_hardening' do
-  localsids = { 'local_sids' => [ 'Debian', 'ipaddress' ], 'office_macro_last_run' => 'macros_from_trused_locations', 'office_macro_uptime' => 90 }
+  localsids = { 'local_sids' => [ 'Debian', 'ipaddress' ], 'office_macro_last_run' => 'macros_from_trusted_locations', 'office_macro_uptime' => 90 }
 
   on_supported_os.each do |os, os_facts|
     context "on #{os}" do

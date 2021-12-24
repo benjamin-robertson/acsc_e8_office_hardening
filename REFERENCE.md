@@ -71,7 +71,7 @@ Default value: `24`
 
 ##### <a name="macro_setting"></a>`macro_setting`
 
-Data type: `Enum['all_macros_disabled','macros_from_trused_locations','signed_macros_only','clear_macro_settings']`
+Data type: `Enum['all_macros_disabled','macros_from_trusted_locations','signed_macros_only','clear_macro_settings']`
 
 Macro settings to enforce, for details see ACSC publication. Default: clear_macro_settings
 
@@ -262,7 +262,7 @@ key name to delete
 ### <a name="acsc_e8_office_hardeningset_trusted_location"></a>`acsc_e8_office_hardening::set_trusted_location`
 
 Creates trusted location for office files.
-This must be used in conjuntion with the macros_from_trused_locations option.
+This must be used in conjuntion with the macros_from_trusted_locations option.
 Otherwise it will have affect.
 
 #### Examples

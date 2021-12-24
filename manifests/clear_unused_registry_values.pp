@@ -22,7 +22,7 @@ class acsc_e8_office_hardening::clear_unused_registry_values (
     'all_macros_disabled': {
       $existing_settings = lookup('acsc_e8_office_hardening::macros::all_disabled')
     }
-    'macros_from_trused_locations': {
+    'macros_from_trusted_locations': {
       $existing_settings = lookup('acsc_e8_office_hardening::macros::trusted_locations')
     }
     'signed_macros_only': {
@@ -36,7 +36,7 @@ class acsc_e8_office_hardening::clear_unused_registry_values (
     'all_macros_disabled': {
       $new_settings = lookup('acsc_e8_office_hardening::macros::all_disabled')
     }
-    'macros_from_trused_locations': {
+    'macros_from_trusted_locations': {
       $new_settings = lookup('acsc_e8_office_hardening::macros::trusted_locations')
     }
     'signed_macros_only': {

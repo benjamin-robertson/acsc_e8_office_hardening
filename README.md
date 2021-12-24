@@ -42,7 +42,13 @@ By default the module will mount and check the default ntuser.dat on each clean 
 
 Plugin sync is required for this module. Three facts will be automatically distributed
 * local_sids
-* 
+* office_macro_last_run
+* office_macro_uptime
+
+Following forge modules are required
+* puppetlabs-stdlib
+* puppetlabs-registry
+
 
 ### Beginning with acsc_e8_office_hardening
 
@@ -52,11 +58,40 @@ use of the module.
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your
-users how to use your module to solve problems, and be sure to include code
-examples. Include three to five examples of the most important or common tasks a
-user can accomplish with your module. Show users how to accomplish more complex
-tasks that involve different types, classes, and functions working in tandem.
+In most basic form, non-enforcement mode.
+
+`include acsc_e8_office_hardening`
+
+Block all macros
+
+```
+  class {'acsc_e8_office_hardening':
+    macro_setting       => 'all_macros_disabled',
+  }
+```
+
+Permit macros from trusted location using a profile and hiera
+
+```
+class profile::office_hardening (
+  Hash $trusted_locations = {}
+){
+  class {'acsc_e8_office_hardening':
+    macro_setting       => 'macros_from_trusted_locations'',
+    trusted_locations   => $trusted_locations,
+  }
+}
+```
+Corresponding hiera data
+```
+profile::office_hardening::trusted_locations:
+  location1:
+    path: 'c:\\temp'
+    date: '12/12/2021 12:00 PM'
+    description: 'Temp on c for macros'
+    allowsub: true
+```
+
 
 ## Reference
 
@@ -93,10 +128,10 @@ Default: 'medium-loud'.
 
 ## Limitations
 
-- Will only work with
-  - Office 365
-  - Office 2016
-  - Office 2019
+Supported office versions
+- Office 365
+- Office 2016
+- Office 2019
 
 Developed on
 - Windows 2019
