@@ -1,4 +1,4 @@
-# @summary A short summary of the purpose of this defined type.
+# @summary Private class
 #
 # Creates trusted location for office files.
 # This must be used in conjuntion with the macros_from_trused_locations option. 

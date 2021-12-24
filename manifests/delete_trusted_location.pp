@@ -1,4 +1,4 @@
-# @summary A short summary of the purpose of this defined type.
+# @summary Private class
 #
 # Delete trusted location if unmanaged by Pupppet
 # We handle up to 20 custom locations

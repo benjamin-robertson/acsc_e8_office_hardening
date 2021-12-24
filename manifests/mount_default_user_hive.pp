@@ -1,4 +1,4 @@
-# @summary A short summary of the purpose of this class
+# @summary Private class
 #
 # Mounts the default user ntuser.dat file located under c:\user\default\ntuser.dat
 # Mounts under HKU\user_default

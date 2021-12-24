@@ -1,4 +1,4 @@
-# @summary 
+# @summary Private class
 #
 # Defined type which deletes registry value for each HKEY_CURRENT_USER on a machine. 
 #

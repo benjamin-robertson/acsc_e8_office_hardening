@@ -1,4 +1,4 @@
-# @summary A short summary of the purpose of this class
+# @summary Private class
 #
 # Configured office macro settings for office.
 # Private class
