@@ -7,19 +7,19 @@
 ### Classes
 
 * [`acsc_e8_office_hardening`](#acsc_e8_office_hardening): A module which enforces https://www.cyber.gov.au/sites/default/files/2021-10/PROTECT%20-%20Hardening%20Microsoft%20365%2C%20Office%202021%2C%
-* [`acsc_e8_office_hardening::clear_unused_registry_values`](#acsc_e8_office_hardeningclear_unused_registry_values): A short summary of the purpose of this class
-* [`acsc_e8_office_hardening::disable_flash`](#acsc_e8_office_hardeningdisable_flash): A short summary of the purpose of this class
-* [`acsc_e8_office_hardening::macros`](#acsc_e8_office_hardeningmacros): A short summary of the purpose of this class
-* [`acsc_e8_office_hardening::mount_default_user_hive`](#acsc_e8_office_hardeningmount_default_user_hive): A short summary of the purpose of this class
-* [`acsc_e8_office_hardening::trusted_locations`](#acsc_e8_office_hardeningtrusted_locations): A short summary of the purpose of this class
-* [`acsc_e8_office_hardening::unmount_default_user_hive`](#acsc_e8_office_hardeningunmount_default_user_hive): A short summary of the purpose of this class
+* [`acsc_e8_office_hardening::clear_unused_registry_values`](#acsc_e8_office_hardeningclear_unused_registry_values): Private class
+* [`acsc_e8_office_hardening::disable_flash`](#acsc_e8_office_hardeningdisable_flash): Private class
+* [`acsc_e8_office_hardening::macros`](#acsc_e8_office_hardeningmacros): Private class
+* [`acsc_e8_office_hardening::mount_default_user_hive`](#acsc_e8_office_hardeningmount_default_user_hive): Private class
+* [`acsc_e8_office_hardening::trusted_locations`](#acsc_e8_office_hardeningtrusted_locations): Private class
+* [`acsc_e8_office_hardening::unmount_default_user_hive`](#acsc_e8_office_hardeningunmount_default_user_hive): Private class
 
 ### Defined types
 
-* [`acsc_e8_office_hardening::delete_trusted_location`](#acsc_e8_office_hardeningdelete_trusted_location): A short summary of the purpose of this defined type.
-* [`acsc_e8_office_hardening::delete_user_registry_value`](#acsc_e8_office_hardeningdelete_user_registry_value): Defined type which deletes registry value for each HKEY_CURRENT_USER on a machine.
-* [`acsc_e8_office_hardening::set_trusted_location`](#acsc_e8_office_hardeningset_trusted_location): A short summary of the purpose of this defined type.
-* [`acsc_e8_office_hardening::user_registry_value`](#acsc_e8_office_hardeninguser_registry_value): Defined type which sets registry value for each HKEY_CURRENT_USER on a machine.
+* [`acsc_e8_office_hardening::delete_trusted_location`](#acsc_e8_office_hardeningdelete_trusted_location): Private class
+* [`acsc_e8_office_hardening::delete_user_registry_value`](#acsc_e8_office_hardeningdelete_user_registry_value): Private class
+* [`acsc_e8_office_hardening::set_trusted_location`](#acsc_e8_office_hardeningset_trusted_location): Private class
+* [`acsc_e8_office_hardening::user_registry_value`](#acsc_e8_office_hardeninguser_registry_value): Private class
 
 ## Classes
 
