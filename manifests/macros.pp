@@ -1,10 +1,15 @@
 # @summary A short summary of the purpose of this class
 #
-# A
+# Configured office macro settings for office.
+# Private class
+# 
 # @example
 #   include acsc_e8_office_hardening::macros
+#
+# @param [String] macro_setting
+#   set office macro setting
 class acsc_e8_office_hardening::macros (
-  String $macro_setting = 'all_macros_disabled',
+  String $macro_setting = 'clear_macro_settings',
 ) {
   assert_private()
 

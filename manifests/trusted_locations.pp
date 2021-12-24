@@ -1,9 +1,12 @@
 # @summary A short summary of the purpose of this class
 #
-# A description of what this class does
+# Creates trusted locations for office
 #
 # @example
 #   include acsc_e8_office_hardening::trusted_locations
+#
+# @param [Hash] trusted_locations
+#   Hash of trusted locations. See readme for example
 class acsc_e8_office_hardening::trusted_locations (
   Hash $trusted_locations,
 ) {

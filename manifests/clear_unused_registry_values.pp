@@ -1,9 +1,18 @@
 # @summary A short summary of the purpose of this class
 #
-# A description of what this class does
+# Clear unused registry values when switching between office macro modes
 #
 # @example
-#   include acsc_e8_office_hardening::clear_unused_registry_values
+#    class { 'acsc_e8_office_hardening::clear_unused_registry_values':
+#      system_setting     => $facts['office_macro_last_run'],
+#      configured_setting => $macro_setting,
+#    }
+#
+# @param [String] system_setting
+#   Current system macro setting
+# @param [String] configured_setting
+#   Configured system macro setting
+#
 class acsc_e8_office_hardening::clear_unused_registry_values (
   String $system_setting,
   String $configured_setting,

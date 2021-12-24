@@ -27,14 +27,6 @@
 
 A module which enforces https://www.cyber.gov.au/sites/default/files/2021-10/PROTECT%20-%20Hardening%20Microsoft%20365%2C%20Office%202021%2C%20Office%202019%20and%20Office%202016%20%28October%202021%29.pdf
 
-
- trusted_locations:
-   location1:
-     path: 'c:\\temp'
-     date: '12/12/2021 12:00 PM'
-     description: 'Temp on c for macros'
-     allowsub: true
-
 #### Examples
 
 ##### 
@@ -95,14 +87,17 @@ Default value: ``undef``
 
 ### <a name="acsc_e8_office_hardeningclear_unused_registry_values"></a>`acsc_e8_office_hardening::clear_unused_registry_values`
 
-A description of what this class does
+Clear unused registry values when switching between office macro modes
 
 #### Examples
 
 ##### 
 
 ```puppet
-include acsc_e8_office_hardening::clear_unused_registry_values
+class { 'acsc_e8_office_hardening::clear_unused_registry_values':
+  system_setting     => $facts['office_macro_last_run'],
+  configured_setting => $macro_setting,
+}
 ```
 
 #### Parameters
@@ -116,13 +111,13 @@ The following parameters are available in the `acsc_e8_office_hardening::clear_u
 
 Data type: `String`
 
-
+Current system macro setting
 
 ##### <a name="configured_setting"></a>`configured_setting`
 
 Data type: `String`
 
-
+Configured system macro setting
 
 ### <a name="acsc_e8_office_hardeningdisable_flash"></a>`acsc_e8_office_hardening::disable_flash`
 
@@ -146,11 +141,12 @@ The following parameters are available in the `acsc_e8_office_hardening::disable
 
 Data type: `Hash`
 
-
+registry values to set
 
 ### <a name="acsc_e8_office_hardeningmacros"></a>`acsc_e8_office_hardening::macros`
 
-A
+Configured office macro settings for office.
+Private class
 
 #### Examples
 
@@ -170,9 +166,9 @@ The following parameters are available in the `acsc_e8_office_hardening::macros`
 
 Data type: `String`
 
+set office macro setting
 
-
-Default value: `'all_macros_disabled'`
+Default value: `'clear_macro_settings'`
 
 ### <a name="acsc_e8_office_hardeningmount_default_user_hive"></a>`acsc_e8_office_hardening::mount_default_user_hive`
 
@@ -189,7 +185,7 @@ include acsc_e8_office_hardening::mount_default_user_hive
 
 ### <a name="acsc_e8_office_hardeningtrusted_locations"></a>`acsc_e8_office_hardening::trusted_locations`
 
-A description of what this class does
+Creates trusted locations for office
 
 #### Examples
 
@@ -209,7 +205,7 @@ The following parameters are available in the `acsc_e8_office_hardening::trusted
 
 Data type: `Hash`
 
-
+Hash of trusted locations. See readme for example
 
 ### <a name="acsc_e8_office_hardeningunmount_default_user_hive"></a>`acsc_e8_office_hardening::unmount_default_user_hive`
 
@@ -228,14 +224,15 @@ include acsc_e8_office_hardening::unmount_default_user_hive
 
 ### <a name="acsc_e8_office_hardeningdelete_trusted_location"></a>`acsc_e8_office_hardening::delete_trusted_location`
 
-A description of what this defined type does
+Delete trusted location if unmanaged by Pupppet
+We handle up to 20 custom locations
 
 #### Examples
 
 ##### 
 
 ```puppet
-acsc_e8_office_hardening::delete_trusted_location { 'namevar': }
+acsc_e8_office_hardening::delete_trusted_location { "location${delelete_index}":}
 ```
 
 ### <a name="acsc_e8_office_hardeningdelete_user_registry_value"></a>`acsc_e8_office_hardening::delete_user_registry_value`
@@ -247,7 +244,7 @@ Defined type which deletes registry value for each HKEY_CURRENT_USER on a machin
 ##### 
 
 ```puppet
-acsc_e8_office_hardening::user_registry_value { 'namevar': }
+acsc_e8_office_hardening::user_registry_value { 'key_name': }
 ```
 
 #### Parameters
@@ -260,7 +257,7 @@ The following parameters are available in the `acsc_e8_office_hardening::delete_
 
 Data type: `String`
 
-
+key name to delete
 
 ### <a name="acsc_e8_office_hardeningset_trusted_location"></a>`acsc_e8_office_hardening::set_trusted_location`
 
@@ -289,13 +286,13 @@ The following parameters are available in the `acsc_e8_office_hardening::set_tru
 
 Data type: `String`
 
-
+File path to permit
 
 ##### <a name="date"></a>`date`
 
 Data type: `Optional[Variant[String,Undef]]`
 
-
+Date set. Default: undef
 
 Default value: ``undef``
 
@@ -303,7 +300,7 @@ Default value: ``undef``
 
 Data type: `Optional[Variant[String,Undef]]`
 
-
+Description of path. Default: undef
 
 Default value: ``undef``
 
@@ -311,7 +308,7 @@ Default value: ``undef``
 
 Data type: `Optional[Boolean]`
 
-
+Permit sub directory under that path. Default: false
 
 Default value: ``false``
 
@@ -338,11 +335,11 @@ The following parameters are available in the `acsc_e8_office_hardening::user_re
 
 Data type: `String`
 
-
+key name
 
 ##### <a name="key_details"></a>`key_details`
 
 Data type: `Hash`
 
-
+Key details, hash containing value, type and data for registry value
 

@@ -6,9 +6,9 @@
 # @example
 #   include acsc_e8_office_hardening
 #
-# @param [boolean] disable_flash_content
+# @param [Boolean] disable_flash_content
 #   Disable flash content. Default: true
-# @param [boolean] disable_macros
+# @param [Boolean] disable_macros
 #   Disable macros, Default: true
 # @param [Integer] set_ntuser_interval
 #   Set the interval to set the default ntuser macro settings in hours. Default: 1
@@ -36,7 +36,6 @@ class acsc_e8_office_hardening (
   # Calculate offset for set_ntuser_interval
   $set_ntuser_int_seconds = $set_ntuser_interval * 3600
   $office_macro_uptime_plus_offset = $facts['office_macro_uptime'] + $set_ntuser_int_seconds
-  notify { "uptime is ${facts['uptime_seconds']} office macro uptiem is ${office_macro_uptime_plus_offset}":}
 
   # Check run count
   if $facts['office_macro_uptime'] > $facts['uptime_seconds'] {

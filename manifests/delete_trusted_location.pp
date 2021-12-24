@@ -1,9 +1,10 @@
 # @summary A short summary of the purpose of this defined type.
 #
-# A description of what this defined type does
+# Delete trusted location if unmanaged by Pupppet
+# We handle up to 20 custom locations
 #
 # @example
-#   acsc_e8_office_hardening::delete_trusted_location { 'namevar': }
+#   acsc_e8_office_hardening::delete_trusted_location { "location${delelete_index}":}
 define acsc_e8_office_hardening::delete_trusted_location (
 ) {
 

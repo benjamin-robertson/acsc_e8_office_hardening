@@ -3,7 +3,10 @@
 # Defined type which deletes registry value for each HKEY_CURRENT_USER on a machine. 
 #
 # @example
-#   acsc_e8_office_hardening::user_registry_value { 'namevar': }
+#   acsc_e8_office_hardening::user_registry_value { 'key_name': }
+#
+# @param [String] key_name
+#   key name to delete
 define acsc_e8_office_hardening::delete_user_registry_value (
   String $key_name,
 ) {

@@ -4,6 +4,11 @@
 #
 # @example
 #   acsc_e8_office_hardening::user_registry_value { 'namevar': }
+#
+# @param [String] key_name
+#   key name
+# @param [Hash] key_details
+#   Key details, hash containing value, type and data for registry value
 define acsc_e8_office_hardening::user_registry_value (
   String $key_name,
   Hash $key_details,

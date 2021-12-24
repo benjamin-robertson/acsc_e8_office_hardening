@@ -4,6 +4,9 @@
 #
 # @example
 #   include acsc_e8_office_hardening::disable_flash
+#
+# @param [Hash] reg_values
+#    registry values to set
 class acsc_e8_office_hardening::disable_flash (
   Hash $reg_values,
 ) {

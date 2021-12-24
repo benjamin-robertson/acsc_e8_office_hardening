@@ -6,6 +6,15 @@
 #
 # @example
 #   acsc_e8_office_hardening::set_trusted_location { 'namevar': }
+#
+# @param [String] path
+#   File path to permit
+# @param [Optional[Variant[String,Undef]]] date
+#   Date set. Default: undef
+# @param [Optional[Variant[String,Undef]]] description
+#   Description of path. Default: undef
+# @param [Optional[Boolean]] allowsub
+#   Permit sub directory under that path. Default: false
 define acsc_e8_office_hardening::set_trusted_location (
   String $path,
   Optional[Variant[String,Undef]] $date = undef,
