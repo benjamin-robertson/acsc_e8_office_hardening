@@ -16,10 +16,10 @@
 
 ### Defined types
 
-* [`acsc_e8_office_hardening::delete_trusted_location`](#acsc_e8_office_hardeningdelete_trusted_location): Private class
-* [`acsc_e8_office_hardening::delete_user_registry_value`](#acsc_e8_office_hardeningdelete_user_registry_value): Private class
-* [`acsc_e8_office_hardening::set_trusted_location`](#acsc_e8_office_hardeningset_trusted_location): Private class
-* [`acsc_e8_office_hardening::user_registry_value`](#acsc_e8_office_hardeninguser_registry_value): Private class
+* [`acsc_e8_office_hardening::delete_trusted_location`](#acsc_e8_office_hardeningdelete_trusted_location): Private type
+* [`acsc_e8_office_hardening::delete_user_registry_value`](#acsc_e8_office_hardeningdelete_user_registry_value): Private type
+* [`acsc_e8_office_hardening::set_trusted_location`](#acsc_e8_office_hardeningset_trusted_location): Private type
+* [`acsc_e8_office_hardening::user_registry_value`](#acsc_e8_office_hardeninguser_registry_value): Private type
 
 ## Classes
 

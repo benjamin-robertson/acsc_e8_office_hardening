@@ -1,4 +1,4 @@
-# @summary Private class
+# @summary Private type
 #
 # Delete trusted location if unmanaged by Pupppet
 # We handle up to 20 custom locations
