@@ -2,6 +2,7 @@
 #
 # Mounts the default user ntuser.dat file located under c:\user\default\ntuser.dat
 # Mounts under HKU\user_default
+# Private class
 #
 # @example
 #   include acsc_e8_office_hardening::mount_default_user_hive

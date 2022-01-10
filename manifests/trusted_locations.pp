@@ -1,6 +1,7 @@
 # @summary Private class
 #
 # Creates trusted locations for office
+# Private class
 #
 # @example
 #   include acsc_e8_office_hardening::trusted_locations
@@ -10,6 +11,7 @@
 class acsc_e8_office_hardening::trusted_locations (
   Hash $trusted_locations,
 ) {
+  assert_private()
   # Get hash keys as an array
   $hash_keys = keys($trusted_locations)
   # Set trusted locations

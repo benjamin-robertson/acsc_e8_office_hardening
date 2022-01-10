@@ -6,7 +6,7 @@
 
 ### Classes
 
-* [`acsc_e8_office_hardening`](#acsc_e8_office_hardening): A module which enforces https://www.cyber.gov.au/sites/default/files/2021-10/PROTECT%20-%20Hardening%20Microsoft%20365%2C%20Office%202021%2C%
+* [`acsc_e8_office_hardening`](#acsc_e8_office_hardening): A module which enforces https://github.com/benjamin-robertson/acsc_e8_office_hardening/blob/main/PROTECT%20-%20Microsoft%20Office%20Macro%20S
 * [`acsc_e8_office_hardening::clear_unused_registry_values`](#acsc_e8_office_hardeningclear_unused_registry_values): Private class
 * [`acsc_e8_office_hardening::disable_flash`](#acsc_e8_office_hardeningdisable_flash): Private class
 * [`acsc_e8_office_hardening::macros`](#acsc_e8_office_hardeningmacros): Private class
@@ -25,7 +25,7 @@
 
 ### <a name="acsc_e8_office_hardening"></a>`acsc_e8_office_hardening`
 
-A module which enforces https://www.cyber.gov.au/sites/default/files/2021-10/PROTECT%20-%20Hardening%20Microsoft%20365%2C%20Office%202021%2C%20Office%202019%20and%20Office%202016%20%28October%202021%29.pdf
+A module which enforces https://github.com/benjamin-robertson/acsc_e8_office_hardening/blob/main/PROTECT%20-%20Microsoft%20Office%20Macro%20Security%20(October%202021).pdf
 
 #### Examples
 
@@ -49,9 +49,9 @@ The following parameters are available in the `acsc_e8_office_hardening` class:
 
 Data type: `Boolean`
 
-Disable flash content. Default: true
+Disable flash content. Default: false
 
-Default value: ``true``
+Default value: ``false``
 
 ##### <a name="disable_macros"></a>`disable_macros`
 
@@ -174,6 +174,7 @@ Default value: `'clear_macro_settings'`
 
 Mounts the default user ntuser.dat file located under c:\user\default\ntuser.dat
 Mounts under HKU\user_default
+Private class
 
 #### Examples
 
@@ -186,6 +187,7 @@ include acsc_e8_office_hardening::mount_default_user_hive
 ### <a name="acsc_e8_office_hardeningtrusted_locations"></a>`acsc_e8_office_hardening::trusted_locations`
 
 Creates trusted locations for office
+Private class
 
 #### Examples
 
@@ -211,6 +213,7 @@ Hash of trusted locations. See readme for example
 
 Mounts the default user ntuser.dat file located under c:\user\default\ntuser.dat
 Mounts under HKU\user_default
+Private class
 
 #### Examples
 
