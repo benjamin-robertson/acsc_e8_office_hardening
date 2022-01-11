@@ -6,9 +6,9 @@ The module will restrict the use of macro within Office.
 
 There are 4 operating modes
 * All macros allowed - default mode
-* All macros disabled - disabled all macros in Office, most secure setting
+* All macros disabled - disable all macros in Office, most secure setting
 * Only macros from trusted locations - Only permit macros from locations specified in the trusted_location parameter
-* Only macros digitally signed by trusted publishers.
+* Only macros digitally signed by trusted publishers - Macros must be signed by a trusted publisher. 
 
 Please see [ACSC documentation][1] for more details. 
 [Saved link][2]
@@ -34,7 +34,7 @@ Use this module to automate the enforcement of ACSC Essential 8 Office macro con
 
 acsc_e8_office_hardening will add required registry settings to systems to restrict Office macros as required.
 
-Most registry settings are applied to HKEY_USER. Due to this, Puppet will managed a significant number of resource as each user has its own registry hive. 
+Most registry settings are applied to HKEY_USER. Due to this, Puppet will manage a significant number of resource as each user has its own registry hive. 
 acsc_e8_office_hardening will also modify the default c:\users\Default\ntuser.dat. This is required for any new users who log on to the system. Without this, Puppet won't restrict that user until the next Puppet run. A suboptimal outcome. 
 By default the module will mount and check the default ntuser.dat on each clean boot and every 24 hours thereafter. 
 
