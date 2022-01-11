@@ -96,7 +96,7 @@ Explanation of trusted_location hash
 ```
   location1: - Name of hash
     path: 'c:\\temp' - Path to allow (string)
-    date: '12/12/2021 12:00 PM' - Date (String) use format shown (Optional)
+    date: '12/12/2021 12:00 PM' - Date, use format as shown (string) (Optional)
     description: 'Temp on c for macros' - Description of location (string) (Optional)
     allowsub: true - Permit subdirectory true\false (boolean) (Optional)
 ```
