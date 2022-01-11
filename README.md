@@ -92,6 +92,15 @@ profile::office_hardening::trusted_locations:
     allowsub: true
 ```
 
+Explanation of trusted_location hash
+```
+  location1: - Name of hash
+    path: 'c:\\temp' - Path to allow (string)
+    date: '12/12/2021 12:00 PM' - Date (String) use format shown (Optional)
+    description: 'Temp on c for macros' - Description of location (string) (Optional)
+    allowsub: true - Permit subdirectorys true\false (boolean) (Optional)
+```
+
 ## Limitations
 
 Supported office versions
@@ -99,7 +108,7 @@ Supported office versions
 - Office 2016
 - Office 2019
 
-Developed on
+Developed and tested on
 - Windows 2019
 - Office 365
 
