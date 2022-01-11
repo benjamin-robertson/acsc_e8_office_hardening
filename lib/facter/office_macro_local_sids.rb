@@ -1,7 +1,7 @@
 # This fact is used to return a list of local SIDS so we can correctly
-# process CIS 19.x rules.  These rules must be set for each USER/SID
+# process office macro rules.  These rules must be set for each USER/SID
 # present inside HKEY_USER
-Facter.add(:local_sids) do
+Facter.add(:office_macro_local_sids) do
   confine kernel: 'windows'
   setcode do
     sid_list = []
