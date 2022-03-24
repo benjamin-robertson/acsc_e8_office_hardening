@@ -5,6 +5,7 @@
   "summary": "Configure ACSC office macro controls",
   "license": "Apache-2.0",
   "source": "https://github.com/benjamin-robertson/acsc_e8_office_hardening",
+  "project_page": "https://github.com/benjamin-robertson/acsc_e8_office_hardening",
   "issues_url": "https://github.com/benjamin-robertson/acsc_e8_office_hardening/issues",
   "dependencies": [
     {
