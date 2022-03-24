@@ -1,10 +1,11 @@
 {
   "name": "benjaminrobertson-acsc_e8_office_hardening",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "benjaminrobertson",
-  "summary": "",
+  "summary": "Configure ACSC office macro controls",
   "license": "Apache-2.0",
-  "source": "",
+  "source": "https://github.com/benjamin-robertson/acsc_e8_office_hardening",
+  "issues_url": "https://github.com/benjamin-robertson/acsc_e8_office_hardening/issues",
   "dependencies": [
     {
       "name": "puppetlabs/registry",
