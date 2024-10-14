@@ -28,7 +28,7 @@ class acsc_e8_office_hardening::clear_unused_registry_values (
     'signed_macros_only': {
       $existing_settings = lookup('acsc_e8_office_hardening::macros::signed_only')
     }
-    default: { fail{'not a valid macro option':} }
+    default: { fail('not a valid macro option') }
   }
 
   # Get configured setting hash
@@ -42,7 +42,7 @@ class acsc_e8_office_hardening::clear_unused_registry_values (
     'signed_macros_only': {
       $new_settings = lookup('acsc_e8_office_hardening::macros::signed_only')
     }
-    default: { fail{'not a valid macro option':} }
+    default: { fail('not a valid macro option') }
   }
 
   # Delete the key no longer managed by puppet
@@ -51,32 +51,31 @@ class acsc_e8_office_hardening::clear_unused_registry_values (
   # Delete the keys
   $keys_to_delete.each | String $key_name, Hash $key_details | {
     case $key_details['class'] {
-        'both': {
-          # Delete machine registry keys
-          registry_value { $key_name:
-            ensure => absent,
-            path   => "HKEY_LOCAL_MACHINE\\${key_name}",
-          }
-          # set user registry keys
-          acsc_e8_office_hardening::delete_user_registry_value { $key_name:
-            key_name    => $key_name,
-          }
+      'both': {
+        # Delete machine registry keys
+        registry_value { $key_name:
+          ensure => absent,
+          path   => "HKEY_LOCAL_MACHINE\\${key_name}",
         }
-        'user': {
-          # set user registry keys
-          acsc_e8_office_hardening::delete_user_registry_value { $key_name:
-            key_name    => $key_name,
-          }
+        # set user registry keys
+        acsc_e8_office_hardening::delete_user_registry_value { $key_name:
+          key_name    => $key_name,
         }
-        'machine': {
-          # set machine registry keys
-          registry_value { $key_name:
-            ensure => absent,
-            path   => "HKEY_LOCAL_MACHINE\\${key_name}",
-          }
-        }
-        default: { fail{'Registry key must specify a class, either both, user, machine.':} }
       }
+      'user': {
+        # set user registry keys
+        acsc_e8_office_hardening::delete_user_registry_value { $key_name:
+          key_name    => $key_name,
+        }
+      }
+      'machine': {
+        # set machine registry keys
+        registry_value { $key_name:
+          ensure => absent,
+          path   => "HKEY_LOCAL_MACHINE\\${key_name}",
+        }
+      }
+      default: { fail('Registry key must specify a class, either both, user, machine.') }
+    }
   }
-
 }

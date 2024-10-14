@@ -19,9 +19,8 @@ define acsc_e8_office_hardening::set_trusted_location (
   String $path,
   Optional[Variant[String,Undef]] $date = undef,
   Optional[Variant[String,Undef]] $description = undef,
-  Optional[Boolean] $allowsub = false,
+  Boolean                         $allowsub = false,
 ) {
-
   $locations = lookup(acsc_e8_office_hardening::set_trusted_location::locations)
 
   # Check if we are setting the user default
@@ -76,5 +75,4 @@ define acsc_e8_office_hardening::set_trusted_location (
       }
     }
   }
-
 }

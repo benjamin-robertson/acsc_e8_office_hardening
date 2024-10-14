@@ -7,7 +7,6 @@
 #   acsc_e8_office_hardening::delete_trusted_location { "location${delelete_index}":}
 define acsc_e8_office_hardening::delete_trusted_location (
 ) {
-
   $locations = lookup(acsc_e8_office_hardening::set_trusted_location::locations)
 
   # Check if we are setting the user default

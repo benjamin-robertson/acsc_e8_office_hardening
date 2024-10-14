@@ -17,5 +17,4 @@ class acsc_e8_office_hardening::mount_default_user_hive {
       unless  => 'C:\\Windows\\system32\\reg.exe query HKU\\user_default',
     }
   }
-
 }

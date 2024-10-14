@@ -29,7 +29,7 @@ class acsc_e8_office_hardening::macros (
     'clear_macro_settings': {
       $clear_macro_settings = true
     }
-    default: { fail{'not a valid macro option':} }
+    default: { fail('not a valid macro option') }
   }
 
   if $clear_macro_settings {
@@ -67,10 +67,9 @@ class acsc_e8_office_hardening::macros (
             path   => "HKEY_LOCAL_MACHINE\\${key_name}",
           }
         }
-        default: { fail{'Registry key must specify a class, either both, user, machine.':} }
+        default: { fail('Registry key must specify a class, either both, user, machine.') }
       }
     }
-
   } else {
     $global_settings.each | String $key_name, Hash $key_details | {
       case $key_details['class'] {
@@ -85,14 +84,14 @@ class acsc_e8_office_hardening::macros (
           # set user registry keys
           acsc_e8_office_hardening::user_registry_value { $key_name:
             key_name    => $key_name,
-            key_details => $key_details
+            key_details => $key_details,
           }
         }
         'user': {
           # set user registry keys
           acsc_e8_office_hardening::user_registry_value { $key_name:
             key_name    => $key_name,
-            key_details => $key_details
+            key_details => $key_details,
           }
         }
         'machine': {
@@ -104,9 +103,8 @@ class acsc_e8_office_hardening::macros (
             data  => $key_details['data'],
           }
         }
-        default: { fail{'Registry key must specify a class, either both, user, machine.':} }
+        default: { fail('Registry key must specify a class, either both, user, machine.') }
       }
     }
   }
-
 }

@@ -17,14 +17,14 @@
 # @param [Variant[Undef,Hash[String,Hash,1,20]]] trusted_locations
 #   Set trusted location. See example in readme. Default: undef
 #
+# lint:ignore:140chars
 class acsc_e8_office_hardening (
-  Boolean $disable_flash_content = false,
-  Boolean $disable_macros = true,
-  Integer $set_ntuser_interval = 24,
-  Enum['all_macros_disabled','macros_from_trusted_locations','signed_macros_only','clear_macro_settings'] $macro_setting = 'clear_macro_settings', # lint:ignore:140chars
-  Variant[Undef,Hash[String,Hash,1,20]] $trusted_locations = undef,
+  Boolean                                                                                                 $disable_flash_content = false,
+  Boolean                                                                                                 $disable_macros        = true,
+  Integer                                                                                                 $set_ntuser_interval   = 24,
+  Enum['all_macros_disabled','macros_from_trusted_locations','signed_macros_only','clear_macro_settings'] $macro_setting         = 'clear_macro_settings',
+  Variant[Undef,Hash[String,Hash,1,20]]                                                                   $trusted_locations     = undef,
 ) {
-
   # Set run status
   registry::value { 'acsc_e8_office_hardening_last_run_option':
     key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
@@ -38,22 +38,22 @@ class acsc_e8_office_hardening (
   $office_macro_uptime_plus_offset = $facts['office_macro_uptime'] + $set_ntuser_int_seconds
 
   # Check run count
-  if $facts['office_macro_uptime'] > $facts['uptime_seconds'] {
+  if $facts['office_macro_uptime'] > $facts['system_uptime']['seconds'] {
     # we have rebooted
     registry::value { 'acsc_e8_office_hardening_uptime':
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
       value => 'office_macro_uptime',
       type  => 'dword',
-      data  => $facts['uptime_seconds'],
+      data  => $facts['system_uptime']['seconds'],
     }
     $set_ntuser_default = true
-  } elsif $facts['uptime_seconds'] > $office_macro_uptime_plus_offset {
+  } elsif $facts['system_uptime']['seconds'] > $office_macro_uptime_plus_offset {
     # we have passed the interval check ntuser.dat default
     registry::value { 'acsc_e8_office_hardening_uptime':
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
       value => 'office_macro_uptime',
       type  => 'dword',
-      data  => $facts['uptime_seconds'],
+      data  => $facts['system_uptime']['seconds'],
     }
     $set_ntuser_default = true
   } elsif $facts['office_macro_uptime'] == 0 {
@@ -62,7 +62,7 @@ class acsc_e8_office_hardening (
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
       value => 'office_macro_uptime',
       type  => 'dword',
-      data  => $facts['uptime_seconds'],
+      data  => $facts['system_uptime']['seconds'],
     }
     $set_ntuser_default = true
   } else {
@@ -113,5 +113,5 @@ class acsc_e8_office_hardening (
 
   # Unmount user default registry hive
   include acsc_e8_office_hardening::unmount_default_user_hive
-
 }
+# lint:endignore

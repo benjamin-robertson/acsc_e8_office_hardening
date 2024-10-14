@@ -1,6 +1,6 @@
 {
   "name": "benjaminrobertson-acsc_e8_office_hardening",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "author": "benjaminrobertson",
   "summary": "Configure ACSC office macro controls",
   "license": "Apache-2.0",
@@ -10,17 +10,18 @@
   "dependencies": [
     {
       "name": "puppetlabs/registry",
-      "version_requirement": ">=4.0.0 < 5.0.0"
+      "version_requirement": ">=4.0.0 < 6.0.0"
     },
     {
       "name": "puppetlabs-stdlib",
-      "version_requirement": ">=6.0.0 < 9.0.0"
+      "version_requirement": ">=6.0.0 < 10.0.0"
     }
   ],
   "operatingsystem_support": [
     {
       "operatingsystem": "windows",
       "operatingsystemrelease": [
+        "2022",
         "2019",
         "10"
       ]
@@ -29,10 +30,10 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 6.21.0 < 8.0.0"
+      "version_requirement": ">= 7.0.0 < 9.0.0"
     }
   ],
-  "pdk-version": "2.1.1",
-  "template-url": "pdk-default#2.1.1",
-  "template-ref": "tags/2.1.1-0-g03daa92"
+  "pdk-version": "3.3.0",
+  "template-url": "pdk-default#3.3.0",
+  "template-ref": "tags/3.3.0-0-g5d17ec1"
 }
