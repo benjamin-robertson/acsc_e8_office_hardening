@@ -33,12 +33,17 @@ class acsc_e8_office_hardening (
     data  => $macro_setting,
   }
 
+  $office_runtime = $facts['office_macro_uptime'] ? {
+    undef   => 0,
+    default => $facts['office_macro_uptime'],
+  }
+
   # Calculate offset for set_ntuser_interval
   $set_ntuser_int_seconds = $set_ntuser_interval * 3600
-  $office_macro_uptime_plus_offset = $facts['office_macro_uptime'] + $set_ntuser_int_seconds
+  $office_macro_uptime_plus_offset = $office_runtime + $set_ntuser_int_seconds
 
   # Check run count
-  if $facts['office_macro_uptime'] > $facts['system_uptime']['seconds'] {
+  if $office_runtime > $facts['system_uptime']['seconds'] {
     # we have rebooted
     registry::value { 'acsc_e8_office_hardening_uptime':
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
@@ -56,7 +61,7 @@ class acsc_e8_office_hardening (
       data  => $facts['system_uptime']['seconds'],
     }
     $set_ntuser_default = true
-  } elsif $facts['office_macro_uptime'] == 0 {
+  } elsif $office_runtime == 0 {
     # office_macro_uptime value has been deleted or unset
     registry::value { 'acsc_e8_office_hardening_uptime':
       key   => 'HKLM\\SOFTWARE\\Puppet Labs\\Puppet',
