@@ -51,7 +51,7 @@ jobs:
 
     env:
       PUPPET_GEM_VERSION: ${{matrix.collection.gem_version}}
-      FACTER_GEM_VERSION: 'https://github.com/puppetlabs/facter#main'  # why is this set?
+      FACTER_GEM_VERSION: 'https://github.com/puppetlabs/facter#main'  # why is this set?.
 
     steps:
     - name: Checkout Source
