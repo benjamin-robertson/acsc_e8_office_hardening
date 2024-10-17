@@ -17,7 +17,7 @@ class acsc_e8_office_hardening::trusted_locations (
   # Set trusted locations
   $hash_keys.each | Integer $index, String $name | {
     $_index = $index + 1
-    acsc_e8_office_hardening::set_trusted_location {"location${_index}":
+    acsc_e8_office_hardening::set_trusted_location { "location${_index}":
       * => $trusted_locations[$name],
     }
   }
@@ -31,7 +31,6 @@ class acsc_e8_office_hardening::trusted_locations (
   $delete_array.each | Integer $index | {
     $delelete_index = 20 - $index
     #notify {"Deleting location${delelete_index}":}
-    acsc_e8_office_hardening::delete_trusted_location { "location${delelete_index}":}
+    acsc_e8_office_hardening::delete_trusted_location { "location${delelete_index}": }
   }
-
 }

@@ -10,7 +10,6 @@
 class acsc_e8_office_hardening::disable_flash (
   Hash $reg_values,
 ) {
-
   $reg_values.each | String $name, Hash $values | {
     registry::value { $name:
       * => $values,

@@ -13,7 +13,6 @@ define acsc_e8_office_hardening::user_registry_value (
   String $key_name,
   Hash $key_details,
 ) {
-
   # Check if we are setting the user default
   if $acsc_e8_office_hardening::set_ntuser_default {
     $all_sids = $facts['office_macro_local_sids'] << 'user_default'
@@ -29,5 +28,4 @@ define acsc_e8_office_hardening::user_registry_value (
       data  => $key_details['data'],
     }
   }
-
 }

@@ -7,25 +7,28 @@
 ### Classes
 
 * [`acsc_e8_office_hardening`](#acsc_e8_office_hardening): A module which enforces https://github.com/benjamin-robertson/acsc_e8_office_hardening/blob/main/PROTECT%20-%20Microsoft%20Office%20Macro%20S
-* [`acsc_e8_office_hardening::clear_unused_registry_values`](#acsc_e8_office_hardeningclear_unused_registry_values): Private class
-* [`acsc_e8_office_hardening::disable_flash`](#acsc_e8_office_hardeningdisable_flash): Private class
-* [`acsc_e8_office_hardening::macros`](#acsc_e8_office_hardeningmacros): Private class
-* [`acsc_e8_office_hardening::mount_default_user_hive`](#acsc_e8_office_hardeningmount_default_user_hive): Private class
-* [`acsc_e8_office_hardening::trusted_locations`](#acsc_e8_office_hardeningtrusted_locations): Private class
-* [`acsc_e8_office_hardening::unmount_default_user_hive`](#acsc_e8_office_hardeningunmount_default_user_hive): Private class
+* [`acsc_e8_office_hardening::clear_unused_registry_values`](#acsc_e8_office_hardening--clear_unused_registry_values): Private class
+* [`acsc_e8_office_hardening::disable_flash`](#acsc_e8_office_hardening--disable_flash): Private class
+* [`acsc_e8_office_hardening::macros`](#acsc_e8_office_hardening--macros): Private class
+* [`acsc_e8_office_hardening::mount_default_user_hive`](#acsc_e8_office_hardening--mount_default_user_hive): Private class
+* [`acsc_e8_office_hardening::trusted_locations`](#acsc_e8_office_hardening--trusted_locations): Private class
+* [`acsc_e8_office_hardening::unmount_default_user_hive`](#acsc_e8_office_hardening--unmount_default_user_hive): Private class
 
 ### Defined types
 
-* [`acsc_e8_office_hardening::delete_trusted_location`](#acsc_e8_office_hardeningdelete_trusted_location): Private type
-* [`acsc_e8_office_hardening::delete_user_registry_value`](#acsc_e8_office_hardeningdelete_user_registry_value): Private type
-* [`acsc_e8_office_hardening::set_trusted_location`](#acsc_e8_office_hardeningset_trusted_location): Private type
-* [`acsc_e8_office_hardening::user_registry_value`](#acsc_e8_office_hardeninguser_registry_value): Private type
+* [`acsc_e8_office_hardening::delete_trusted_location`](#acsc_e8_office_hardening--delete_trusted_location): Private type
+* [`acsc_e8_office_hardening::delete_user_registry_value`](#acsc_e8_office_hardening--delete_user_registry_value): Private type
+* [`acsc_e8_office_hardening::set_trusted_location`](#acsc_e8_office_hardening--set_trusted_location): Private type
+* [`acsc_e8_office_hardening::user_registry_value`](#acsc_e8_office_hardening--user_registry_value): Private type
 
 ## Classes
 
 ### <a name="acsc_e8_office_hardening"></a>`acsc_e8_office_hardening`
 
 A module which enforces https://github.com/benjamin-robertson/acsc_e8_office_hardening/blob/main/PROTECT%20-%20Microsoft%20Office%20Macro%20Security%20(October%202021).pdf
+
+
+lint:ignore:140chars
 
 #### Examples
 
@@ -39,29 +42,29 @@ include acsc_e8_office_hardening
 
 The following parameters are available in the `acsc_e8_office_hardening` class:
 
-* [`disable_flash_content`](#disable_flash_content)
-* [`disable_macros`](#disable_macros)
-* [`set_ntuser_interval`](#set_ntuser_interval)
-* [`macro_setting`](#macro_setting)
-* [`trusted_locations`](#trusted_locations)
+* [`disable_flash_content`](#-acsc_e8_office_hardening--disable_flash_content)
+* [`disable_macros`](#-acsc_e8_office_hardening--disable_macros)
+* [`set_ntuser_interval`](#-acsc_e8_office_hardening--set_ntuser_interval)
+* [`macro_setting`](#-acsc_e8_office_hardening--macro_setting)
+* [`trusted_locations`](#-acsc_e8_office_hardening--trusted_locations)
 
-##### <a name="disable_flash_content"></a>`disable_flash_content`
+##### <a name="-acsc_e8_office_hardening--disable_flash_content"></a>`disable_flash_content`
 
 Data type: `Boolean`
 
 Disable flash content. Default: false
 
-Default value: ``false``
+Default value: `false`
 
-##### <a name="disable_macros"></a>`disable_macros`
+##### <a name="-acsc_e8_office_hardening--disable_macros"></a>`disable_macros`
 
 Data type: `Boolean`
 
 Disable macros, Default: true
 
-Default value: ``true``
+Default value: `true`
 
-##### <a name="set_ntuser_interval"></a>`set_ntuser_interval`
+##### <a name="-acsc_e8_office_hardening--set_ntuser_interval"></a>`set_ntuser_interval`
 
 Data type: `Integer`
 
@@ -69,7 +72,7 @@ Set the interval to set the default ntuser macro settings in hours. Default: 1
 
 Default value: `24`
 
-##### <a name="macro_setting"></a>`macro_setting`
+##### <a name="-acsc_e8_office_hardening--macro_setting"></a>`macro_setting`
 
 Data type: `Enum['all_macros_disabled','macros_from_trusted_locations','signed_macros_only','clear_macro_settings']`
 
@@ -77,15 +80,15 @@ Macro settings to enforce, for details see ACSC publication. Default: clear_macr
 
 Default value: `'clear_macro_settings'`
 
-##### <a name="trusted_locations"></a>`trusted_locations`
+##### <a name="-acsc_e8_office_hardening--trusted_locations"></a>`trusted_locations`
 
 Data type: `Variant[Undef,Hash[String,Hash,1,20]]`
 
 Set trusted location. See example in readme. Default: undef
 
-Default value: ``undef``
+Default value: `undef`
 
-### <a name="acsc_e8_office_hardeningclear_unused_registry_values"></a>`acsc_e8_office_hardening::clear_unused_registry_values`
+### <a name="acsc_e8_office_hardening--clear_unused_registry_values"></a>`acsc_e8_office_hardening::clear_unused_registry_values`
 
 Clear unused registry values when switching between office macro modes
 
@@ -104,22 +107,22 @@ class { 'acsc_e8_office_hardening::clear_unused_registry_values':
 
 The following parameters are available in the `acsc_e8_office_hardening::clear_unused_registry_values` class:
 
-* [`system_setting`](#system_setting)
-* [`configured_setting`](#configured_setting)
+* [`system_setting`](#-acsc_e8_office_hardening--clear_unused_registry_values--system_setting)
+* [`configured_setting`](#-acsc_e8_office_hardening--clear_unused_registry_values--configured_setting)
 
-##### <a name="system_setting"></a>`system_setting`
+##### <a name="-acsc_e8_office_hardening--clear_unused_registry_values--system_setting"></a>`system_setting`
 
 Data type: `String`
 
 Current system macro setting
 
-##### <a name="configured_setting"></a>`configured_setting`
+##### <a name="-acsc_e8_office_hardening--clear_unused_registry_values--configured_setting"></a>`configured_setting`
 
 Data type: `String`
 
 Configured system macro setting
 
-### <a name="acsc_e8_office_hardeningdisable_flash"></a>`acsc_e8_office_hardening::disable_flash`
+### <a name="acsc_e8_office_hardening--disable_flash"></a>`acsc_e8_office_hardening::disable_flash`
 
 Disables flash within office
 
@@ -135,15 +138,15 @@ include acsc_e8_office_hardening::disable_flash
 
 The following parameters are available in the `acsc_e8_office_hardening::disable_flash` class:
 
-* [`reg_values`](#reg_values)
+* [`reg_values`](#-acsc_e8_office_hardening--disable_flash--reg_values)
 
-##### <a name="reg_values"></a>`reg_values`
+##### <a name="-acsc_e8_office_hardening--disable_flash--reg_values"></a>`reg_values`
 
 Data type: `Hash`
 
 registry values to set
 
-### <a name="acsc_e8_office_hardeningmacros"></a>`acsc_e8_office_hardening::macros`
+### <a name="acsc_e8_office_hardening--macros"></a>`acsc_e8_office_hardening::macros`
 
 Configured office macro settings for office.
 Private class
@@ -160,9 +163,9 @@ include acsc_e8_office_hardening::macros
 
 The following parameters are available in the `acsc_e8_office_hardening::macros` class:
 
-* [`macro_setting`](#macro_setting)
+* [`macro_setting`](#-acsc_e8_office_hardening--macros--macro_setting)
 
-##### <a name="macro_setting"></a>`macro_setting`
+##### <a name="-acsc_e8_office_hardening--macros--macro_setting"></a>`macro_setting`
 
 Data type: `String`
 
@@ -170,7 +173,7 @@ set office macro setting
 
 Default value: `'clear_macro_settings'`
 
-### <a name="acsc_e8_office_hardeningmount_default_user_hive"></a>`acsc_e8_office_hardening::mount_default_user_hive`
+### <a name="acsc_e8_office_hardening--mount_default_user_hive"></a>`acsc_e8_office_hardening::mount_default_user_hive`
 
 Mounts the default user ntuser.dat file located under c:\user\default\ntuser.dat
 Mounts under HKU\user_default
@@ -184,7 +187,7 @@ Private class
 include acsc_e8_office_hardening::mount_default_user_hive
 ```
 
-### <a name="acsc_e8_office_hardeningtrusted_locations"></a>`acsc_e8_office_hardening::trusted_locations`
+### <a name="acsc_e8_office_hardening--trusted_locations"></a>`acsc_e8_office_hardening::trusted_locations`
 
 Creates trusted locations for office
 Private class
@@ -201,15 +204,15 @@ include acsc_e8_office_hardening::trusted_locations
 
 The following parameters are available in the `acsc_e8_office_hardening::trusted_locations` class:
 
-* [`trusted_locations`](#trusted_locations)
+* [`trusted_locations`](#-acsc_e8_office_hardening--trusted_locations--trusted_locations)
 
-##### <a name="trusted_locations"></a>`trusted_locations`
+##### <a name="-acsc_e8_office_hardening--trusted_locations--trusted_locations"></a>`trusted_locations`
 
 Data type: `Hash`
 
 Hash of trusted locations. See readme for example
 
-### <a name="acsc_e8_office_hardeningunmount_default_user_hive"></a>`acsc_e8_office_hardening::unmount_default_user_hive`
+### <a name="acsc_e8_office_hardening--unmount_default_user_hive"></a>`acsc_e8_office_hardening::unmount_default_user_hive`
 
 Mounts the default user ntuser.dat file located under c:\user\default\ntuser.dat
 Mounts under HKU\user_default
@@ -225,7 +228,7 @@ include acsc_e8_office_hardening::unmount_default_user_hive
 
 ## Defined types
 
-### <a name="acsc_e8_office_hardeningdelete_trusted_location"></a>`acsc_e8_office_hardening::delete_trusted_location`
+### <a name="acsc_e8_office_hardening--delete_trusted_location"></a>`acsc_e8_office_hardening::delete_trusted_location`
 
 Delete trusted location if unmanaged by Pupppet
 We handle up to 20 custom locations
@@ -238,7 +241,7 @@ We handle up to 20 custom locations
 acsc_e8_office_hardening::delete_trusted_location { "location${delelete_index}":}
 ```
 
-### <a name="acsc_e8_office_hardeningdelete_user_registry_value"></a>`acsc_e8_office_hardening::delete_user_registry_value`
+### <a name="acsc_e8_office_hardening--delete_user_registry_value"></a>`acsc_e8_office_hardening::delete_user_registry_value`
 
 Defined type which deletes registry value for each HKEY_CURRENT_USER on a machine.
 
@@ -254,15 +257,15 @@ acsc_e8_office_hardening::user_registry_value { 'key_name': }
 
 The following parameters are available in the `acsc_e8_office_hardening::delete_user_registry_value` defined type:
 
-* [`key_name`](#key_name)
+* [`key_name`](#-acsc_e8_office_hardening--delete_user_registry_value--key_name)
 
-##### <a name="key_name"></a>`key_name`
+##### <a name="-acsc_e8_office_hardening--delete_user_registry_value--key_name"></a>`key_name`
 
 Data type: `String`
 
 key name to delete
 
-### <a name="acsc_e8_office_hardeningset_trusted_location"></a>`acsc_e8_office_hardening::set_trusted_location`
+### <a name="acsc_e8_office_hardening--set_trusted_location"></a>`acsc_e8_office_hardening::set_trusted_location`
 
 Creates trusted location for office files.
 This must be used in conjuntion with the macros_from_trusted_locations option.
@@ -280,42 +283,42 @@ acsc_e8_office_hardening::set_trusted_location { 'namevar': }
 
 The following parameters are available in the `acsc_e8_office_hardening::set_trusted_location` defined type:
 
-* [`path`](#path)
-* [`date`](#date)
-* [`description`](#description)
-* [`allowsub`](#allowsub)
+* [`path`](#-acsc_e8_office_hardening--set_trusted_location--path)
+* [`date`](#-acsc_e8_office_hardening--set_trusted_location--date)
+* [`description`](#-acsc_e8_office_hardening--set_trusted_location--description)
+* [`allowsub`](#-acsc_e8_office_hardening--set_trusted_location--allowsub)
 
-##### <a name="path"></a>`path`
+##### <a name="-acsc_e8_office_hardening--set_trusted_location--path"></a>`path`
 
 Data type: `String`
 
 File path to permit
 
-##### <a name="date"></a>`date`
+##### <a name="-acsc_e8_office_hardening--set_trusted_location--date"></a>`date`
 
 Data type: `Optional[Variant[String,Undef]]`
 
 Date set. Default: undef
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="description"></a>`description`
+##### <a name="-acsc_e8_office_hardening--set_trusted_location--description"></a>`description`
 
 Data type: `Optional[Variant[String,Undef]]`
 
 Description of path. Default: undef
 
-Default value: ``undef``
+Default value: `undef`
 
-##### <a name="allowsub"></a>`allowsub`
+##### <a name="-acsc_e8_office_hardening--set_trusted_location--allowsub"></a>`allowsub`
 
-Data type: `Optional[Boolean]`
+Data type: `Boolean`
 
 Permit sub directory under that path. Default: false
 
-Default value: ``false``
+Default value: `false`
 
-### <a name="acsc_e8_office_hardeninguser_registry_value"></a>`acsc_e8_office_hardening::user_registry_value`
+### <a name="acsc_e8_office_hardening--user_registry_value"></a>`acsc_e8_office_hardening::user_registry_value`
 
 Defined type which sets registry value for each HKEY_CURRENT_USER on a machine.
 
@@ -331,16 +334,16 @@ acsc_e8_office_hardening::user_registry_value { 'namevar': }
 
 The following parameters are available in the `acsc_e8_office_hardening::user_registry_value` defined type:
 
-* [`key_name`](#key_name)
-* [`key_details`](#key_details)
+* [`key_name`](#-acsc_e8_office_hardening--user_registry_value--key_name)
+* [`key_details`](#-acsc_e8_office_hardening--user_registry_value--key_details)
 
-##### <a name="key_name"></a>`key_name`
+##### <a name="-acsc_e8_office_hardening--user_registry_value--key_name"></a>`key_name`
 
 Data type: `String`
 
 key name
 
-##### <a name="key_details"></a>`key_details`
+##### <a name="-acsc_e8_office_hardening--user_registry_value--key_details"></a>`key_details`
 
 Data type: `Hash`
 

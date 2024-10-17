@@ -10,7 +10,6 @@
 define acsc_e8_office_hardening::delete_user_registry_value (
   String $key_name,
 ) {
-
   # Check if we are setting the user default
   if $acsc_e8_office_hardening::set_ntuser_default {
     $all_sids = $facts['office_macro_local_sids'] << 'user_default'
@@ -24,5 +23,4 @@ define acsc_e8_office_hardening::delete_user_registry_value (
       path   => "HKEY_USERS\\${sid}\\${key_name}",
     }
   }
-
 }
